@@ -28,7 +28,7 @@
             	<nav class="navbar navbar-expand-lg navbar-light">
 					<div class="container box_1620">
 						<!-- Brand and toggle get grouped for better mobile display -->
-						<a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt="This is Logo"></a>
+						<a class="navbar-brand logo_h" href="index.html"><img src="{{asset('assets/img/logo.png')}}" alt="This is Logo"></a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
@@ -70,7 +70,7 @@
 					<div class="banner_content">
 						<div class="media">
 							<div class="d-flex">
-								<img src="img/personal.jpg" alt="This is my picture">
+								<img src="{{asset('assets/img/personal.jpg')}}" alt="This is my picture">
 							</div>
 							<div class="media-body">
 								<div class="personal_text">
