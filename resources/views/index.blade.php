@@ -70,6 +70,7 @@
 					<div class="banner_content">
 						<div class="media">
 							<div class="d-flex">
+								{{-- 668px*690px --}}
 								<img src="{{asset('assets/img/personal.jpg')}}" alt="This is my picture">
 							</div>
 							<div class="media-body">
