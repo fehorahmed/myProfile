@@ -284,7 +284,7 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="@yield('dashboard') treeview">
+            <li class="@yield('dashboard_status') treeview">
               <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -328,7 +328,7 @@
 
 
 
-            <li class="@yield('banner') treeview">
+            <li class="@yield('banner_status') treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
                 <span>Picture Control</span>

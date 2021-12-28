@@ -1,9 +1,10 @@
 
 @extends('backend.layout.main')
+
 @section('title','Dashboard')
-@section('dashboard_status','active');
 @section('content')
 
+@section('dashboard_status','active');
 
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
