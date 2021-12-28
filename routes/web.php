@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BannerPicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +23,6 @@ Route::get('/',[HomeController::class,'home']);
 
 
 
-Route::get('/admin/home',[AdminController::class,'home']);
+Route::get('/admin/home',[AdminController::class,'index'])->name('admin.home');
+
+Route::get('/admin/bannerpic',[BannerPicController::class,'index'])->name('banner.home');
