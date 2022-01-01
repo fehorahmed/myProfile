@@ -14,20 +14,31 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+
+Route::get('/',[HomeController::class,'home']);
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+         return view('backend.dashboard');
+        })->name('dashboard');
+
+        
+});
+
+
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
-
-
- Route::get('/',[HomeController::class,'home']);
 // Route::get('/admin/home',[AdminController::class,'index'])->name('admin.home');
 // Route::get('/admin/bannerpic',[BannerPicController::class,'index'])->name('banner.home');
 
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 
 require __DIR__.'/auth.php';
