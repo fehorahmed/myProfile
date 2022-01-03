@@ -66,16 +66,26 @@
                             </li>
                             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 
+
                             @if (Route::has('login') && Auth::check())
-                                <div class="top-right links">
-                                    <a href="{{ url('/dashboard') }}">Dashboard</a>
-                                </div>
+                                <li class="nav-item">
+                                    <div class="top-right links">
+                                        <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
+                                    </div>
+                                </li>
                             @elseif (Route::has('login') && !Auth::check())
-                                <div class="top-right links">
-                                    <a href="{{ url('/login') }}">Login</a>
-                                    <a href="{{ url('/register') }}">Register</a>
-                                </div>
+
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ url('/login') }}">Login</a>
+                                    </li>
+                                    <li class="nav-item"> <a class="nav-link"
+                                            href="{{ url('/register') }}">Register</a></li>
+
+
                             @endif
+
+
                         </ul>
                     </div>
                 </div>
@@ -523,9 +533,8 @@
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             <script>
                                 document.write(new Date().getFullYear());
-                            </script> All rights reserved | This template is made with <i
-                                class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                                target="_blank">Colorlib</a>
+                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </aside>

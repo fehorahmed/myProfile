@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BannerPicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +22,17 @@ Route::get('/',[HomeController::class,'home']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
-         return view('backend.dashboard');
+         return view('backend.index');
         })->name('dashboard');
 
-        
+
+        //Test Perpous
+        Route::get('/dashboard2', function () {
+            return view('backend.dashboard');
+           });
+        //
+           Route::get('/admin/banner',[BannerPicController::class,'index'])->name('admin.banner');
+
 });
 
 

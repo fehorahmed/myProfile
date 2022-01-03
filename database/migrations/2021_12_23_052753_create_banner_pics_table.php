@@ -16,8 +16,15 @@ class CreateBannerPicsTable extends Migration
         Schema::create('banner_pics', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('designation');
+            $table->string('details');
+            $table->string('date');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('address');
+            $table->string('pic_name');
             $table->integer('status');
-            $table->timestamps(); 
+            $table->timestamps();
         });
     }
 
