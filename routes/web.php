@@ -17,22 +17,22 @@ use App\Http\Controllers\BannerPicController;
 */
 
 
-Route::get('/',[HomeController::class,'home']);
+Route::get('/', [HomeController::class, 'home']);
 
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
-         return view('backend.index');
-        })->name('dashboard');
+        return view('backend.index');
+    })->name('dashboard');
 
 
-        //Test Perpous
-        Route::get('/dashboard2', function () {
-            return view('backend.dashboard');
-           });
-        //
-           Route::get('/admin/banner',[BannerPicController::class,'index'])->name('admin.banner');
-
+    //Test Perpous
+    Route::get('/dashboard2', function () {
+        return view('backend.dashboard');
+    });
+    //
+    Route::get('/admin/banner', [BannerPicController::class, 'index'])->name('admin.banner');
+    Route::get('/admin/banner/add', [BannerPicController::class, 'create'])->name('admin.banner.add');
 });
 
 
@@ -50,4 +50,4 @@ Route::middleware(['auth'])->group(function () {
 // })->middleware(['auth'])->name('dashboard');
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

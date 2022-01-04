@@ -25,9 +25,10 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Responsive Hover Table</h3>
-              <button class="btn btn-primary">Add New</button>
+              <h3 class="box-title">Banner Section</h3>
+              <a href="{{route('admin.banner.add')}}"><button class="btn btn-primary center-block">Add New</button></a>
               <div class="box-tools">
+
                 <div class="input-group" style="width: 150px;">
                   <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">
                   <div class="input-group-btn">

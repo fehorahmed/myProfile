@@ -14,7 +14,7 @@ class BannerPicController extends Controller
      */
     public function index()
     {
-        return view('backend.banner_pic');
+        return view('backend.banner.banner_pic');
     }
 
     /**
@@ -24,7 +24,7 @@ class BannerPicController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.banner.banner_pic_add');
     }
 
     /**
