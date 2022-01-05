@@ -26,17 +26,8 @@
                     <div class="box-header">
                         <h3 class="box-title">Banner Add Section</h3>
                         <a href="{{ route('admin.banner') }}"><button
-                                class="btn btn-primary center-block">Back</button></a>
-                        <div class="box-tools">
+                                class="btn btn-primary pull-right">Back</button></a>
 
-                            <div class="input-group" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control input-sm pull-right"
-                                    placeholder="Search">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                                </div>
-                            </div>
-                        </div>
                     </div><!-- /.box-header -->
                 </div><!-- /.box -->
             </div>
@@ -48,29 +39,105 @@
                     <h3 class="box-title">Quick Example</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form">
+                <form action="{{route('admin.banner.store')}}" method="POST" enctype="multipart/form-data" role="form">
+                    @csrf
                     <div class="box-body">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="name" value="{{old('name')}}" id="name" placeholder="Enter Your Name">
+                            </div>
+                            @error('name')
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{$message}}
+                              </div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="email" value="{{old('email')}}" class="form-control" name="email"  id="exampleInputEmail1"
                                     placeholder="Enter email">
                             </div>
+                            @error('email')
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{$message}}
+                              </div>
+                            @enderror
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1"
-                                    placeholder="Password">
+                                <label for="phone">Phone Number</label>
+                                <input type="number" value="{{old('phone')}}" name="phone" class="form-control" id="exampleInputEmail1"
+                                    placeholder="Enter Phone Number">
                             </div>
+                            @error('phone')
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{$message}}
+                              </div>
+                            @enderror
                             <div class="form-group">
-                                <label for="exampleInputFile">File input</label>
-                                <input type="file" id="exampleInputFile">
+                                <label for="address">Enter Address</label>
+                                <textarea name="address" class="form-control" id="address" cols="30" rows="5"
+                                    placeholder="Enter Address">{{old('address')}}</textarea>
+                            </div>
+                            @error('address')
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{$message}}
+                              </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="designation">Designation</label>
+                                <input type="text" class="form-control" name="designation" value="{{old('designation')}}" id="designation"
+                                    placeholder="Enter Your Designation">
+                            </div>
+                            @error('designation')
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{$message}}
+                              </div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="details">Details Paragraph</label>
+                                <textarea name="details" class="form-control" id="details" cols="30" rows="5"
+                                    placeholder="Enter details paragraph">{{old('details')}}</textarea>
+                            </div>
+                            @error('details')
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{$message}}
+                              </div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="date">Date of Birth</label>
+                                <input type="date" name="date" value="{{old('date')}}" class="form-control" id="date">
+                            </div>
+                            @error('date')
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{$message}}
+                              </div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="exampleInputFile">Image File</label>
+                                <input type="file" name="file" id="exampleInputFile">
                                 <p class="help-block">Example block-level help text here.</p>
                             </div>
+                            @error('file')
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{$message}}
+                              </div>
+                            @enderror
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox"> Check me out
+                                    <input type="checkbox" name="status" value="1"> Active Now
                                 </label>
                             </div>
+
+
                         </div>
 
                     </div><!-- /.box-body -->

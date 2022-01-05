@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
     //
     Route::get('/admin/banner', [BannerPicController::class, 'index'])->name('admin.banner');
     Route::get('/admin/banner/add', [BannerPicController::class, 'create'])->name('admin.banner.add');
+    Route::post('/admin/banner/add', [BannerPicController::class, 'store'])->name('admin.banner.store');
 });
 
 

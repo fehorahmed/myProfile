@@ -35,7 +35,21 @@ class BannerPicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required|max:20',
+            'designation'=>'required|max:20',
+            'date'=>'required|date',
+            'details'=>'required|max:150',
+            'phone'=>'required|min:11|max:14',
+            'email'=>'required|email:rfc,dns',
+            'address'=>'required|max:60',
+            'file'=>'required|mimes:jpg,bmp,png',
+        ]);
+
+
+        $file=$request->post('file');
+        return $file;
+
     }
 
     /**
