@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BannerPic;
+use GrahamCampbell\ResultType\Result;
 use Illuminate\Http\Request;
 
 class BannerPicController extends Controller
@@ -100,9 +101,10 @@ class BannerPicController extends Controller
      * @param  \App\Models\BannerPic  $bannerPic
      * @return \Illuminate\Http\Response
      */
-    public function edit(BannerPic $bannerPic)
+    public function edit($id)
     {
-        //
+        $result['data']= BannerPic::findOrFail($id);
+        return view('backend.banner.banner_pic_edit',$result);
     }
 
     /**
@@ -132,12 +134,13 @@ class BannerPicController extends Controller
 
     public function active($id){
 
-        $model= BannerPic::all()->update(['status'=>0]);
-        $model->update();
+        BannerPic::query()->update(['status'=>0]);
+        $model= BannerPic::find($id);
+        $model->status=1;
+        $model->save();
 
-
-        return $model;
-        $model= BannerPic::findOrFail($id);
+        return redirect()->back()->with("message","Status Updated..");
+        // $model= BannerPic::findOrFail($id);
 
     }
 

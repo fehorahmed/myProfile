@@ -68,7 +68,7 @@
                                         <td>{{ $datas->phone }}</td>
 
                                         <td>
-                                            <span class="btn btn-info">Edit</span>
+                                            <a class="btn btn-info" href="{{ route('admin.banner.edit', ['id' => $datas->id]) }}">Edit</a>
                                             <span class="btn btn-danger">Delete</span>
                                             @if ($datas->status == 1)
                                                 <span class="label label-info">This is Active</span>

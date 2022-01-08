@@ -35,6 +35,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/banner/add', [BannerPicController::class, 'create'])->name('admin.banner.add');
     Route::post('/admin/banner/add', [BannerPicController::class, 'store'])->name('admin.banner.store');
     Route::get('/admin/banner/active/{id}', [BannerPicController::class, 'active'])->name('admin.banner.active');
+    Route::get('/admin/banner/edit/{id}', [BannerPicController::class, 'edit'])->name('admin.banner.edit');
+    Route::post('/admin/banner/update', [BannerPicController::class, 'edit'])->name('admin.banner.update');
 });
 
 

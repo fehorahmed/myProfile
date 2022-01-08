@@ -102,11 +102,17 @@
                     <div class="media">
                         <div class="d-flex">
                             {{-- 668px*690px --}}
-                            <img src="{{ asset('assets/img/personal.jpg') }}" alt="This is my picture">
+                            @if ($data->isNotEmpty())
+                            <img src="{{ asset('profilePic/'.$data[0]->pic_name) }}" alt="This is my picture">
+                            @else
+                            <img src="" alt="This is my picture">
+                            @endif
+
                         </div>
                         <div class="media-body">
                             <div class="personal_text">
                                 <h6>Hello Everybody, i am</h6>
+                                @if ($data->isNotEmpty())
                                 <h3>{{$data[0]->name}}</h3>
                                 <h4>{{$data[0]->designation}}</h4>
                                 <p>{{$data[0]->details}}</p>
@@ -116,6 +122,8 @@
                                     <li><a href="#"><i class="lnr lnr-envelope"></i> {{$data[0]->email}}</a></li>
                                     <li><a class="b-ancor" href="#"><i class="lnr lnr-home b-icon"></i> {{$data[0]->address}}</a></li>
                                 </ul>
+                                @endif
+
                                 <ul class="list personal_social">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
