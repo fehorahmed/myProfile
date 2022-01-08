@@ -14,7 +14,8 @@ class BannerPicController extends Controller
      */
     public function index()
     {
-        return view('backend.banner.banner_pic');
+        $result['data'] = BannerPic::all();
+        return view('backend.banner.banner_pic', $result);
     }
 
     /**
@@ -36,20 +37,50 @@ class BannerPicController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required|max:20',
-            'designation'=>'required|max:20',
-            'date'=>'required|date',
-            'details'=>'required|max:150',
-            'phone'=>'required|min:11|max:14',
-            'email'=>'required|email:rfc,dns',
-            'address'=>'required|max:60',
-            'file'=>'required|mimes:jpg,bmp,png',
+            'name' => 'required|max:20',
+            'designation' => 'required|max:20',
+            'date' => 'required|date',
+            'details' => 'required|max:150',
+            'phone' => 'required|min:11|max:14',
+            'email' => 'required|email:rfc,dns',
+            'address' => 'required|max:60',
+            'file' => 'required|image|mimes:jpg,bmp,png|dimensions:ratio=668/690',
         ]);
 
 
-        $file=$request->post('file');
-        return $file;
 
+
+        $name = $request->post('name');
+        $designation = $request->post('designation');
+        $date = $request->post('date');
+        $details = $request->post('details');
+        $phone = $request->post('phone');
+        $email = $request->post('email');
+        $address = $request->post('address');
+        $status = $request->post('status');
+
+        if ($request->hasFile('file')) {
+            $imageName = time() . '.' . $request->file('file')->extension();
+            // $request->file('file')->store('', $imageName);
+            // $path = $request->file('file')->storeAs('profilePic',$imageName);
+            $request->file('file')->move(public_path('profilePic'), $imageName);
+        }
+
+
+        $model = new BannerPic();
+
+        $model->name = $name;
+        $model->designation = $designation;
+        $model->date = $date;
+        $model->details = $details;
+        $model->phone = $phone;
+        $model->email = $email;
+        $model->address = $address;
+        $model->pic_name = $imageName;
+        $model->status = 0;
+        $model->save();
+
+        return redirect()->route('admin.banner')->with('message', 'Successfully Profile Added.');
     }
 
     /**
@@ -96,4 +127,20 @@ class BannerPicController extends Controller
     {
         //
     }
+
+
+
+    public function active($id){
+
+        $model= BannerPic::all()->update(['status'=>0]);
+        $model->update();
+
+
+        return $model;
+        $model= BannerPic::findOrFail($id);
+
+    }
+
+
+    //Flight::destroy(1);
 }

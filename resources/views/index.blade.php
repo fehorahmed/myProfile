@@ -107,15 +107,14 @@
                         <div class="media-body">
                             <div class="personal_text">
                                 <h6>Hello Everybody, i am</h6>
-                                <h3>Donald McKinney</h3>
-                                <h4>Junior UI/UX Developer</h4>
-                                <p>You will begin to realise why this exercise is called the Dickens Pattern (with
-                                    reference to the ghost showing Scrooge some different futures)</p>
+                                <h3>{{$data[0]->name}}</h3>
+                                <h4>{{$data[0]->designation}}</h4>
+                                <p>{{$data[0]->details}}</p>
                                 <ul class="list basic_info">
-                                    <li><a href="#"><i class="lnr lnr-calendar-full"></i> 31st December, 1992</a></li>
-                                    <li><a href="#"><i class="lnr lnr-phone-handset"></i> 44 (012) 6954 783</a></li>
-                                    <li><a href="#"><i class="lnr lnr-envelope"></i> businessplan@donald</a></li>
-                                    <li><a href="#"><i class="lnr lnr-home"></i> Santa monica bullevard</a></li>
+                                    <li><a href="#"><i class="lnr lnr-calendar-full"></i> {{$data[0]->date}}</a></li>
+                                    <li><a href="#"><i class="lnr lnr-phone-handset"></i> {{$data[0]->phone}}</a></li>
+                                    <li><a href="#"><i class="lnr lnr-envelope"></i> {{$data[0]->email}}</a></li>
+                                    <li><a class="b-ancor" href="#"><i class="lnr lnr-home b-icon"></i> {{$data[0]->address}}</a></li>
                                 </ul>
                                 <ul class="list personal_social">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>

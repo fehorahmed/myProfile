@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class BannerPic extends Model
 {
-    use HasFactory;
+
+    protected $fillable=["name","designation","details","date","phone","email","address"];
 }

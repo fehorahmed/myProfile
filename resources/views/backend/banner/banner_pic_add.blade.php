@@ -35,9 +35,8 @@
         <div class="row">
 
             <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Quick Example</h3>
-                </div><!-- /.box-header -->
+
+
                 <!-- form start -->
                 <form action="{{route('admin.banner.store')}}" method="POST" enctype="multipart/form-data" role="form">
                     @csrf
@@ -123,19 +122,16 @@
                             <div class="form-group">
                                 <label for="exampleInputFile">Image File</label>
                                 <input type="file" name="file" id="exampleInputFile">
-                                <p class="help-block">Example block-level help text here.</p>
+                                <p class="help-block">Image Must be Width:668px and Height:690px.</p>
                             </div>
                             @error('file')
                             <div class="alert alert-danger alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                Image Must be Width:668px and Height:690px. <br>
                                 {{$message}}
                               </div>
                             @enderror
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="status" value="1"> Active Now
-                                </label>
-                            </div>
+
 
 
                         </div>
