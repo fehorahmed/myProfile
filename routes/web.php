@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
@@ -30,13 +31,26 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard2', function () {
         return view('backend.dashboard');
     });
-    //
+    // Banner Section
     Route::get('/admin/banner', [BannerPicController::class, 'index'])->name('admin.banner');
     Route::get('/admin/banner/add', [BannerPicController::class, 'create'])->name('admin.banner.add');
     Route::post('/admin/banner/add', [BannerPicController::class, 'store'])->name('admin.banner.store');
     Route::get('/admin/banner/active/{id}', [BannerPicController::class, 'active'])->name('admin.banner.active');
     Route::get('/admin/banner/edit/{id}', [BannerPicController::class, 'edit'])->name('admin.banner.edit');
-    Route::post('/admin/banner/update', [BannerPicController::class, 'edit'])->name('admin.banner.update');
+    Route::post('/admin/banner/update', [BannerPicController::class, 'update'])->name('admin.banner.update');
+    Route::get('/admin/banner/destroy/{id}', [BannerPicController::class, 'destroy'])->name('admin.banner.destroy');
+
+     // About Section
+     Route::get('/admin/about', [AboutController::class, 'index'])->name('admin.about');
+     Route::get('/admin/about/add', [AboutController::class, 'create'])->name('admin.about.add');
+     Route::post('/admin/about/add', [AboutController::class, 'store'])->name('admin.about.store');
+     Route::get('/admin/about/active/{id}', [AboutController::class, 'active'])->name('admin.about.active');
+     Route::get('/admin/about/edit/{id}', [AboutController::class, 'edit'])->name('admin.about.edit');
+     Route::post('/admin/about/update', [AboutController::class, 'update'])->name('admin.about.update');
+     Route::get('/admin/about/destroy/{id}', [AboutController::class, 'destroy'])->name('admin.about.destroy');
+
+
+
 });
 
 

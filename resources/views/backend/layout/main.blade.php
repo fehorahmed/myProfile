@@ -356,16 +356,20 @@
 
 
 
-                        <li class="@yield('banner_status') treeview">
+                        <li class=" @yield('main_status') treeview">
                             <a href="#">
                                 <i class="fa fa-laptop"></i>
                                 <span>Picture Control</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{route('admin.banner')}}"><i class="fa fa-circle-o"></i>Banner Pic</a></li>
+                                <li class="@yield('banner_status')"><a href="{{route('admin.banner')}}"><i class="fa fa-circle-o"></i>Banner & Picture</a></li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li class="@yield('about_status')"><a href="{{route('admin.about')}}"><i class="fa fa-circle-o"></i>About Section</a></li>
                             </ul>
                         </li>
+
 
 
                         {{-- <li class="treeview">

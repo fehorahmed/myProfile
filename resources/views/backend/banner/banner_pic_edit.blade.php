@@ -3,6 +3,7 @@
 @section('title', 'Banner Control')
 @section('content')
 
+@section('main_status', 'active');
 @section('banner_status', 'active');
 
 <div class="content-wrapper">
@@ -10,7 +11,7 @@
     <section class="content-header">
         <h1>
             @yield('title')
-            <small>Add Banner</small>
+            <small>Edit Banner</small>
         </h1>
         <ol class="breadcrumb">
             <li class="active"><i class="fa fa-dashboard"></i> @yield('title')</li>
@@ -54,7 +55,7 @@
                             @enderror
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
-                                <input type="email" value="{{old('email')}}" class="form-control" name="email"  id="exampleInputEmail1"
+                                <input type="email" value="{{old('email', $data->email)}}" class="form-control" name="email"  id="exampleInputEmail1"
                                     placeholder="Enter email">
                             </div>
                             @error('email')
@@ -65,7 +66,7 @@
                             @enderror
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
-                                <input type="number" value="{{old('phone')}}" name="phone" class="form-control" id="exampleInputEmail1"
+                                <input type="number" value="{{old('phone',$data->phone)}}" name="phone" class="form-control" id="exampleInputEmail1"
                                     placeholder="Enter Phone Number">
                             </div>
                             @error('phone')
@@ -77,7 +78,7 @@
                             <div class="form-group">
                                 <label for="address">Enter Address</label>
                                 <textarea name="address" class="form-control" id="address" cols="30" rows="5"
-                                    placeholder="Enter Address">{{old('address')}}</textarea>
+                                    placeholder="Enter Address">{{old('address',$data->address)}}</textarea>
                             </div>
                             @error('address')
                             <div class="alert alert-danger alert-dismissable">
@@ -89,7 +90,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="designation">Designation</label>
-                                <input type="text" class="form-control" name="designation" value="{{old('designation')}}" id="designation"
+                                <input type="text" class="form-control" name="designation" value="{{old('designation',$data->designation)}}" id="designation"
                                     placeholder="Enter Your Designation">
                             </div>
                             @error('designation')
@@ -101,7 +102,7 @@
                             <div class="form-group">
                                 <label for="details">Details Paragraph</label>
                                 <textarea name="details" class="form-control" id="details" cols="30" rows="5"
-                                    placeholder="Enter details paragraph">{{old('details')}}</textarea>
+                                    placeholder="Enter details paragraph">{{old('details',$data->details)}}</textarea>
                             </div>
                             @error('details')
                             <div class="alert alert-danger alert-dismissable">
@@ -111,7 +112,7 @@
                             @enderror
                             <div class="form-group">
                                 <label for="date">Date of Birth</label>
-                                <input type="date" name="date" value="{{old('date')}}" class="form-control" id="date">
+                                <input type="date" name="date" value="{{old('date',$data->date)}}" class="form-control" id="date">
                             </div>
                             @error('date')
                             <div class="alert alert-danger alert-dismissable">
@@ -120,6 +121,8 @@
                               </div>
                             @enderror
                             <div class="form-group">
+                                <img src="{{ asset('profilePic/'.$data->pic_name) }}" width="80" alt="">
+                                <br>
                                 <label for="exampleInputFile">Image File</label>
                                 <input type="file" name="file" id="exampleInputFile">
                                 <p class="help-block">Image Must be Width:668px and Height:690px.</p>
@@ -139,7 +142,8 @@
                     </div><!-- /.box-body -->
 
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <input type="hidden" name="id" value="{{$data->id}}">
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>
             </div>

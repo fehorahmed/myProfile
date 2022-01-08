@@ -1,10 +1,10 @@
 @extends('backend.layout.main')
 
-@section('title', 'Banner Control')
+@section('title', 'About Control')
 @section('content')
 
 @section('main_status', 'active');
-@section('banner_status', 'active');
+@section('about_status', 'active');
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -36,7 +36,7 @@
                             </div>
                         @endif
 
-                        <a href="{{ route('admin.banner.add') }}"><button class="btn btn-primary center-block">Add
+                        <a href="{{ route('admin.about.add') }}"><button class="btn btn-primary center-block">Add
                                 New</button></a>
                         <div class="box-tools">
 
@@ -54,28 +54,38 @@
                             <tbody>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Designation</th>
-                                    <th>Phone</th>
+                                    <th>about</th>
+                                    <th>donation</th>
+                                    <th>project</th>
+                                    <th>volunteers</th>
+                                    <th>web_design</th>
+                                    <th>web_development</th>
+                                    <th>laravel</th>
+                                    <th>wordpress</th>
+                                    <th>photoshop</th>
                                     <th>Action</th>
                                 </tr>
                                 @foreach ($data as $datas)
                                     <tr>
                                         <td>{{ $datas->id }}</td>
-                                        <td>{{ $datas->name }}</td>
-                                        <td>{{ $datas->email }}</td>
-                                        <td>{{ $datas->designation }}</td>
-                                        <td>{{ $datas->phone }}</td>
+                                        <td>{{ $datas->about }}</td>
+                                        <td>{{ $datas->donation }}</td>
+                                        <td>{{ $datas->project }}</td>
+                                        <td>{{ $datas->volunteers }}</td>
+                                        <td>{{ $datas->web_design }}</td>
+                                        <td>{{ $datas->web_development }}</td>
+                                        <td>{{ $datas->laravel }}</td>
+                                        <td>{{ $datas->wordpress }}</td>
+                                        <td>{{ $datas->photoshop }}</td>
 
                                         <td>
-                                            <a class="btn btn-info" href="{{ route('admin.banner.edit', ['id' => $datas->id]) }}">Edit</a>
-                                            <a class="btn btn-danger" href="{{ route('admin.banner.destroy', ['id' => $datas->id]) }}">Delete</a>
+                                            <a class="btn btn-info" href="{{ route('admin.about.edit', ['id' => $datas->id]) }}">Edit</a>
+                                            <a class="btn btn-danger" href="{{ route('admin.about.destroy', ['id' => $datas->id]) }}">Delete</a>
                                             @if ($datas->status == 1)
                                                 <span class="label label-info">This is Active</span>
                                             @else
                                                 <a class="btn btn-warning"
-                                                    href="{{ route('admin.banner.active', ['id' => $datas->id]) }}">Active</a>
+                                                    href="{{ route('admin.about.active', ['id' => $datas->id]) }}">Active</a>
                                             @endif
 
                                         </td>

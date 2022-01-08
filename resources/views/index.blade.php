@@ -105,7 +105,7 @@
                             @if ($data->isNotEmpty())
                             <img src="{{ asset('profilePic/'.$data[0]->pic_name) }}" alt="This is my picture">
                             @else
-                            <img src="" alt="This is my picture">
+                            <img src="{{asset('assets/img/personal.jpg')}}" alt="This is my picture"  >
                             @endif
 
                         </div>
@@ -121,6 +121,16 @@
                                     <li><a href="#"><i class="lnr lnr-phone-handset"></i> {{$data[0]->phone}}</a></li>
                                     <li><a href="#"><i class="lnr lnr-envelope"></i> {{$data[0]->email}}</a></li>
                                     <li><a class="b-ancor" href="#"><i class="lnr lnr-home b-icon"></i> {{$data[0]->address}}</a></li>
+                                </ul>
+                                @else
+                                <h3>Name Here</h3>
+                                <h4>Designation is here</h4>
+                                <p>Details here</p>
+                                <ul class="list basic_info">
+                                    <li><a href="#"><i class="lnr lnr-calendar-full"></i> Date of Birth</a></li>
+                                    <li><a href="#"><i class="lnr lnr-phone-handset"></i> Phone No.</a></li>
+                                    <li><a href="#"><i class="lnr lnr-envelope"></i> Email</a></li>
+                                    <li><a class="b-ancor" href="#"><i class="lnr lnr-home b-icon"></i> Address</a></li>
                                 </ul>
                                 @endif
 
