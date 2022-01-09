@@ -23,26 +23,30 @@ class AboutController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:20',
-            'designation' => 'required|max:20',
-            'date' => 'required|date',
-            'details' => 'required|max:150',
-            'phone' => 'required|min:11|max:14',
-            'email' => 'required|email:rfc,dns',
-            'address' => 'required|max:60',
-            'file' => 'required|image|mimes:jpg,bmp,png|dimensions:ratio=668/690',
+            'about' => 'required|max:300',
+            'donation' => 'required|numeric',
+            'project' => 'required|numeric',
+            'volunteers' => 'required|numeric',
+            'web_design' => 'required|numeric|max:100',
+            'web_development' => 'required|numeric|max:100',
+            'laravel' => 'required|numeric|max:100',
+            'wordpress' => 'required|numeric|max:100',
+            'photoshop' => 'required|numeric|max:100',
+
         ]);
 
 
 
 
-        $name = $request->post('name');
-        $designation = $request->post('designation');
-        $date = $request->post('date');
-        $details = $request->post('details');
-        $phone = $request->post('phone');
-        $email = $request->post('email');
-        $address = $request->post('address');
+        $about = $request->post('about');
+        $donation = $request->post('donation');
+        $project = $request->post('project');
+        $volunteers = $request->post('volunteers');
+        $web_design = $request->post('web_design');
+        $web_development = $request->post('web_development');
+        $laravel = $request->post('laravel');
+        $wordpress = $request->post('wordpress');
+        $photoshop = $request->post('photoshop');
 
         // if ($request->hasFile('file')) {
         //     $imageName = time() . '.' . $request->file('file')->extension();
@@ -54,14 +58,15 @@ class AboutController extends Controller
 
         $model = new About();
 
-        $model->name = $name;
-        $model->designation = $designation;
-        $model->date = $date;
-        $model->details = $details;
-        $model->phone = $phone;
-        $model->email = $email;
-        $model->address = $address;
-       // $model->pic_name = $imageName;
+        $model->about = $about;
+        $model->donation = $donation;
+        $model->project = $project;
+        $model->volunteers = $volunteers;
+        $model->web_design = $web_design;
+        $model->web_development = $web_development;
+        $model->laravel = $laravel;
+        $model->wordpress = $wordpress;
+        $model->photoshop = $photoshop;
         $model->status = 0;
         $model->save();
 
@@ -79,78 +84,71 @@ class AboutController extends Controller
     {
         $request->validate([
             'id' => 'required|numeric',
-            'name' => 'required|max:20',
-            'designation' => 'required|max:20',
-            'date' => 'required|date',
-            'details' => 'required|max:150',
-            'phone' => 'required|min:11|max:14',
-            'email' => 'required|email:rfc,dns',
-            'address' => 'required|max:60',
+            'donation' => 'required|numeric',
+            'project' => 'required|numeric',
+            'volunteers' => 'required|numeric',
+            'web_design' => 'required|numeric|max:100',
+            'web_development' => 'required|numeric|max:100',
+            'laravel' => 'required|numeric|max:100',
+            'wordpress' => 'required|numeric|max:100',
+            'photoshop' => 'required|numeric|max:100',
 
         ]);
 
 
         $id = $request->post('id');
 
-        $name = $request->post('name');
-        $designation = $request->post('designation');
-        $date = $request->post('date');
-        $details = $request->post('details');
-        $phone = $request->post('phone');
-        $email = $request->post('email');
-        $address = $request->post('address');
+        $about = $request->post('about');
+        $donation = $request->post('donation');
+        $project = $request->post('project');
+        $volunteers = $request->post('volunteers');
+        $web_design = $request->post('web_design');
+        $web_development = $request->post('web_development');
+        $laravel = $request->post('laravel');
+        $wordpress = $request->post('wordpress');
+        $photoshop = $request->post('photoshop');
 
         // if ($request->hasFile('file')) {
-
         //     $request->validate([
         //         'file' => 'required|image|mimes:jpg,bmp,png|dimensions:ratio=668/690',
         //     ]);
-
-
         //     $model = BannerPic::find($id);
         //     if (!empty($model->pic_name)) {
         //         unlink(public_path('profilePic\\' . $model->pic_name));
         //         $model->pic_name = "";
         //     }
-
         //     $imageName = time() . '.' . $request->file('file')->extension();
         //     $request->file('file')->move(public_path('profilePic'), $imageName);
         // }
-
         // $request->file('file')->store('', $imageName);
         // $path = $request->file('file')->storeAs('profilePic',$imageName);
 
-
         $model = About::find($id);
-
-        $model->name = $name;
-        $model->designation = $designation;
-        $model->date = $date;
-        $model->details = $details;
-        $model->phone = $phone;
-        $model->email = $email;
-        $model->address = $address;
-       // $model->pic_name = $imageName;
+        $model->about = $about;
+        $model->donation = $donation;
+        $model->project = $project;
+        $model->volunteers = $volunteers;
+        $model->web_design = $web_design;
+        $model->web_development = $web_development;
+        $model->laravel = $laravel;
+        $model->wordpress = $wordpress;
+        $model->photoshop = $photoshop;
         $model->status = 0;
         $model->update();
 
-        return redirect()->route('admin.banner')->with('message', 'Successfully About Updated.');
+        return redirect()->route('admin.about')->with('message', 'Successfully About Updated.');
     }
 
 
     public function destroy($id)
     {
-
-        $result = About::find($id);
-        $result->pic_name;
-
+        // $result = About::find($id);
+        // $result->pic_name;
        // $path = public_path('profilePic\\' . $result->pic_name);
         // if (file_exists( public_path('profilePic\\' . $result->pic_name))) {
         //     unlink(public_path('profilePic\\' . $result->pic_name));
         //   }
-
         About::destroy($id);
-
         return redirect()->back()->with('message', 'Successfully About Deleted.');
     }
 
@@ -162,10 +160,10 @@ class AboutController extends Controller
         About::query()->update(['status' => 0]);
         $model = About::find($id);
         $model->status = 1;
-        $model->save();
+        $model->update();
 
         return redirect()->back()->with("message", "Status Updated..");
-        // $model= BannerPic::findOrFail($id);
+
 
     }
 }

@@ -76,11 +76,11 @@
                             @elseif (Route::has('login') && !Auth::check())
 
 
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/login') }}">Login</a>
-                                    </li>
-                                    <li class="nav-item"> <a class="nav-link"
-                                            href="{{ url('/register') }}">Register</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/login') }}">Login</a>
+                                </li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="{{ url('/register') }}">Register</a></li>
 
 
                             @endif
@@ -102,36 +102,41 @@
                     <div class="media">
                         <div class="d-flex">
                             {{-- 668px*690px --}}
-                            @if ($data->isNotEmpty())
-                            <img src="{{ asset('profilePic/'.$data[0]->pic_name) }}" alt="This is my picture">
+                            @if ($banner->isNotEmpty())
+                                <img src="{{ asset('profilePic/' . $banner[0]->pic_name) }}" alt="This is my picture">
                             @else
-                            <img src="{{asset('assets/img/personal.jpg')}}" alt="This is my picture"  >
+                                <img src="{{ asset('assets/img/personal.jpg') }}" alt="This is my picture">
                             @endif
 
                         </div>
                         <div class="media-body">
                             <div class="personal_text">
                                 <h6>Hello Everybody, i am</h6>
-                                @if ($data->isNotEmpty())
-                                <h3>{{$data[0]->name}}</h3>
-                                <h4>{{$data[0]->designation}}</h4>
-                                <p>{{$data[0]->details}}</p>
-                                <ul class="list basic_info">
-                                    <li><a href="#"><i class="lnr lnr-calendar-full"></i> {{$data[0]->date}}</a></li>
-                                    <li><a href="#"><i class="lnr lnr-phone-handset"></i> {{$data[0]->phone}}</a></li>
-                                    <li><a href="#"><i class="lnr lnr-envelope"></i> {{$data[0]->email}}</a></li>
-                                    <li><a class="b-ancor" href="#"><i class="lnr lnr-home b-icon"></i> {{$data[0]->address}}</a></li>
-                                </ul>
+                                @if ($banner->isNotEmpty())
+                                    <h3>{{ $banner[0]->name }}</h3>
+                                    <h4>{{ $banner[0]->designation }}</h4>
+                                    <p>{{ $banner[0]->details }}</p>
+                                    <ul class="list basic_info">
+                                        <li><a href="#"><i class="lnr lnr-calendar-full"></i>
+                                                {{ $banner[0]->date }}</a></li>
+                                        <li><a href="#"><i class="lnr lnr-phone-handset"></i>
+                                                {{ $banner[0]->phone }}</a></li>
+                                        <li><a href="#"><i class="lnr lnr-envelope"></i> {{ $banner[0]->email }}</a>
+                                        </li>
+                                        <li><a class="b-ancor" href="#"><i class="lnr lnr-home b-icon"></i>
+                                                {{ $banner[0]->address }}</a></li>
+                                    </ul>
                                 @else
-                                <h3>Name Here</h3>
-                                <h4>Designation is here</h4>
-                                <p>Details here</p>
-                                <ul class="list basic_info">
-                                    <li><a href="#"><i class="lnr lnr-calendar-full"></i> Date of Birth</a></li>
-                                    <li><a href="#"><i class="lnr lnr-phone-handset"></i> Phone No.</a></li>
-                                    <li><a href="#"><i class="lnr lnr-envelope"></i> Email</a></li>
-                                    <li><a class="b-ancor" href="#"><i class="lnr lnr-home b-icon"></i> Address</a></li>
-                                </ul>
+                                    <h3>Name Here</h3>
+                                    <h4>Designation is here</h4>
+                                    <p>Details here</p>
+                                    <ul class="list basic_info">
+                                        <li><a href="#"><i class="lnr lnr-calendar-full"></i> Date of Birth</a></li>
+                                        <li><a href="#"><i class="lnr lnr-phone-handset"></i> Phone No.</a></li>
+                                        <li><a href="#"><i class="lnr lnr-envelope"></i> Email</a></li>
+                                        <li><a class="b-ancor" href="#"><i class="lnr lnr-home b-icon"></i>
+                                                Address</a></li>
+                                    </ul>
                                 @endif
 
                                 <ul class="list personal_social">
@@ -154,84 +159,168 @@
             <div class="row welcome_inner">
                 <div class="col-lg-6">
                     <div class="welcome_text">
-                        <h4>About Myself</h4>
-                        <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct
-                            standards especially in the workplace. That’s why it’s crucial that, as women, our behavior
-                            on the job is beyond reproach. inappropriate behavior is often laughed.</p>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="wel_item">
-                                    <i class="lnr lnr-database"></i>
-                                    <h4>$2.5M</h4>
-                                    <p>Total Donation</p>
+                        @if ($about->isNotEmpty())
+                            <h4>About Myself</h4>
+                            <p>{{ $about[0]->about }}</p>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="wel_item">
+                                        <i class="lnr lnr-database"></i>
+                                        <h4>${{ $about[0]->donation }}</h4>
+                                        <p>Total Donation</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="wel_item">
+                                        <i class="lnr lnr-book"></i>
+                                        <h4>{{ $about[0]->project }}</h4>
+                                        <p>Total Projects</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="wel_item">
+                                        <i class="lnr lnr-users"></i>
+                                        <h4>{{ $about[0]->volunteers }}</h4>
+                                        <p>Total Volunteers</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="wel_item">
-                                    <i class="lnr lnr-book"></i>
-                                    <h4>1465</h4>
-                                    <p>Total Projects</p>
+                        @else
+                            <h4>About Myself</h4>
+                            <p>About will display here</p>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="wel_item">
+                                        <i class="lnr lnr-database"></i>
+                                        <h4>$50</h4>
+                                        <p>Total Donation</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="wel_item">
+                                        <i class="lnr lnr-book"></i>
+                                        <h4>50</h4>
+                                        <p>Total Projects</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="wel_item">
+                                        <i class="lnr lnr-users"></i>
+                                        <h4>50</h4>
+                                        <p>Total Volunteers</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="wel_item">
-                                    <i class="lnr lnr-users"></i>
-                                    <h4>3965</h4>
-                                    <p>Total Volunteers</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endif
+
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="tools_expert">
-                        <div class="skill_main">
-                            <div class="skill_item">
-                                <h4>After Effects <span class="counter">85</span>%</h4>
-                                <div class="progress_br">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="85"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
+                        @if ($about->isNotEmpty())
+                            <div class="skill_main">
+                                <div class="skill_item">
+                                    <h4>Web Design <span class="counter">{{ $about[0]->web_design }}</span>%
+                                    </h4>
+                                    <div class="progress_br">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar"
+                                                aria-valuenow="{{ $about[0]->web_design }}" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill_item">
+                                    <h4>Web Development <span
+                                            class="counter">{{ $about[0]->web_development }}</span>%</h4>
+                                    <div class="progress_br">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar"
+                                                aria-valuenow="{{ $about[0]->web_development }}" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill_item">
+                                    <h4>Illustrator <span class="counter">{{ $about[0]->laravel }}</span>%</h4>
+                                    <div class="progress_br">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar"
+                                                aria-valuenow="{{ $about[0]->laravel }}" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill_item">
+                                    <h4>Sublime <span class="counter">{{ $about[0]->wordpress }}</span>%</h4>
+                                    <div class="progress_br">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar"
+                                                aria-valuenow="{{ $about[0]->wordpress }}" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill_item">
+                                    <h4>Sketch <span class="counter">{{ $about[0]->photoshop }}</span>%</h4>
+                                    <div class="progress_br">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar"
+                                                aria-valuenow="{{ $about[0]->photoshop }}" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="skill_item">
-                                <h4>Photoshop <span class="counter">90</span>%</h4>
-                                <div class="progress_br">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="90"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
+                        @else
+                            <div class="skill_main">
+                                <div class="skill_item">
+                                    <h4>After Effects <span class="counter">50</span>%</h4>
+                                    <div class="progress_br">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="50"
+                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill_item">
+                                    <h4>Photoshop <span class="counter">90</span>%</h4>
+                                    <div class="progress_br">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="50"
+                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill_item">
+                                    <h4>Illustrator <span class="counter">50</span>%</h4>
+                                    <div class="progress_br">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="50"
+                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill_item">
+                                    <h4>Sublime <span class="counter">50</span>%</h4>
+                                    <div class="progress_br">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="50"
+                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill_item">
+                                    <h4>Sketch <span class="counter">50</span>%</h4>
+                                    <div class="progress_br">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="50"
+                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="skill_item">
-                                <h4>Illustrator <span class="counter">70</span>%</h4>
-                                <div class="progress_br">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill_item">
-                                <h4>Sublime <span class="counter">95</span>%</h4>
-                                <div class="progress_br">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="95"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill_item">
-                                <h4>Sketch <span class="counter">75</span>%</h4>
-                                <div class="progress_br">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="75"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -303,7 +392,7 @@
                                         <p>March 2017 to present</p>
                                     </div>
                                     <div class="media-body">
-                                        <h4>Colorlib</h4>
+                                        <h4>2nd</h4>
                                         <p>Senior Web Developer <br />Santa monica, Los angeles</p>
                                     </div>
                                 </div>

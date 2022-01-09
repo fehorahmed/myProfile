@@ -79,12 +79,12 @@
                                         <td>{{ $datas->photoshop }}</td>
 
                                         <td>
-                                            <a class="btn btn-info" href="{{ route('admin.about.edit', ['id' => $datas->id]) }}">Edit</a>
-                                            <a class="btn btn-danger" href="{{ route('admin.about.destroy', ['id' => $datas->id]) }}">Delete</a>
+                                            <a class="btn btn-info btn-sm" href="{{ route('admin.about.edit', ['id' => $datas->id]) }}">Edit</a>
+                                            <a class="btn btn-danger btn-sm" href="{{ route('admin.about.destroy', ['id' => $datas->id]) }}">Delete</a>
                                             @if ($datas->status == 1)
                                                 <span class="label label-info">This is Active</span>
                                             @else
-                                                <a class="btn btn-warning"
+                                                <a class="btn btn-warning btn-sm"
                                                     href="{{ route('admin.about.active', ['id' => $datas->id]) }}">Active</a>
                                             @endif
 

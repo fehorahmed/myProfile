@@ -110,7 +110,8 @@ class BannerPicController extends Controller
 
 
             $model = BannerPic::find($id);
-            if (!empty($model->pic_name)) {
+
+            if (file_exists( public_path('profilePic\\' . $model->pic_name))) {
                 unlink(public_path('profilePic\\' . $model->pic_name));
                 $model->pic_name = "";
             }

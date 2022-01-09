@@ -40,110 +40,132 @@
 
 
                 <!-- form start -->
-                <form action="{{route('admin.about.update')}}" method="POST" enctype="multipart/form-data" role="form">
+                <form action="{{ route('admin.about.update') }}" method="POST" enctype="multipart/form-data"
+                    role="form">
                     @csrf
                     <div class="box-body">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" name="name" value="{{old('name', $data->name)}}" id="name" placeholder="Enter Your Name">
+                                <label for="about">About Yourself</label>
+                                <textarea name="about" class="form-control" id="about" cols="30" rows="5"
+                                    placeholder="Enter about yourself">{{ old('about',$data->about) }}</textarea>
+
                             </div>
-                            @error('name')
-                            <div class="alert alert-danger alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                {{$message}}
-                              </div>
+                            @error('about')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
                             @enderror
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email</label>
-                                <input type="email" value="{{old('email', $data->email)}}" class="form-control" name="email"  id="exampleInputEmail1"
-                                    placeholder="Enter email">
+                                <label for="exampleInputEmail1">Donation in a Number</label>
+                                <input type="number" value="{{ old('donation',$data->donation) }}" class="form-control"
+                                    name="donation" id="donation" placeholder="Enter donation in number">
                             </div>
-                            @error('email')
-                            <div class="alert alert-danger alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                {{$message}}
-                              </div>
+                            @error('donation')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
                             @enderror
                             <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="number" value="{{old('phone',$data->phone)}}" name="phone" class="form-control" id="exampleInputEmail1"
-                                    placeholder="Enter Phone Number">
+                                <label for="project">Project in a Number</label>
+                                <input type="number" value="{{ old('project',$data->project) }}" name="project" class="form-control"
+                                    id="project" placeholder="Enter project in a Number">
                             </div>
-                            @error('phone')
-                            <div class="alert alert-danger alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                {{$message}}
-                              </div>
+                            @error('project')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
                             @enderror
                             <div class="form-group">
-                                <label for="address">Enter Address</label>
-                                <textarea name="address" class="form-control" id="address" cols="30" rows="5"
-                                    placeholder="Enter Address">{{old('address',$data->address)}}</textarea>
+                                <label for="volunteers">Enter Volunteers in a Number</label>
+                                <input type="number" value="{{ old('volunteers',$data->volunteers) }}" name="volunteers"
+                                    class="form-control" id="volunteers" placeholder="Enter volunteers in a Number">
+
                             </div>
-                            @error('address')
-                            <div class="alert alert-danger alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                {{$message}}
-                              </div>
+                            @error('volunteers')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="designation">Designation</label>
-                                <input type="text" class="form-control" name="designation" value="{{old('designation',$data->designation)}}" id="designation"
-                                    placeholder="Enter Your Designation">
+                                <label for="web_design">Web Design skrill in %</label>
+                                <input type="number" class="form-control" name="web_design"
+                                    value="{{ old('web_design',$data->web_design) }}" id="web_design"
+                                    placeholder="Enter Your Web Design Skrill in %">
                             </div>
-                            @error('designation')
-                            <div class="alert alert-danger alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                {{$message}}
-                              </div>
+                            @error('web_design')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
                             @enderror
                             <div class="form-group">
-                                <label for="details">Details Paragraph</label>
-                                <textarea name="details" class="form-control" id="details" cols="30" rows="5"
-                                    placeholder="Enter details paragraph">{{old('details',$data->details)}}</textarea>
+                                <label for="web_development">Web Development skrill in %</label>
+                                <input type="number" class="form-control" name="web_development"
+                                    value="{{ old('web_development',$data->web_development) }}" id="web_development"
+                                    placeholder="Enter Your Web Development Skrill in %">
                             </div>
-                            @error('details')
-                            <div class="alert alert-danger alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                {{$message}}
-                              </div>
+                            @error('web_development')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
                             @enderror
                             <div class="form-group">
-                                <label for="date">Date of Birth</label>
-                                <input type="date" name="date" value="{{old('date',$data->date)}}" class="form-control" id="date">
+                                <label for="laravel">Laravel Skrill in %</label>
+                                <input type="number" name="laravel" value="{{ old('laravel',$data->laravel) }}" class="form-control"
+                                    placeholder="Enter Wordpress skrill in %" id="laravel">
                             </div>
-                            @error('date')
-                            <div class="alert alert-danger alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                {{$message}}
-                              </div>
+                            @error('laravel')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
                             @enderror
                             <div class="form-group">
-                                <img src="{{ asset('profilePic/'.$data->pic_name) }}" width="80" alt="">
-                                <br>
-                                <label for="exampleInputFile">Image File</label>
-                                <input type="file" name="file" id="exampleInputFile">
-                                <p class="help-block">Image Must be Width:668px and Height:690px.</p>
+                                <label for="wordpress">Wordpress Skrill in %</label>
+                                <input type="number" value="{{ old('wordpress',$data->wordpress) }}" name="wordpress" id="wordpress"
+                                    class="form-control" placeholder="Enter Wordpress skrill in %">
                             </div>
-                            @error('file')
-                            <div class="alert alert-danger alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                Image Must be Width:668px and Height:690px. <br>
-                                {{$message}}
-                              </div>
+                            @error('wordpress')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
                             @enderror
-
-
+                            <div class="form-group">
+                                <label for="wordpress">Photoshop Skrill in %</label>
+                                <input type="number" value="{{ old('photoshop',$data->photoshop) }}" name="photoshop" id="photoshop"
+                                    class="form-control" placeholder="Enter Photoshop skrill in %">
+                            </div>
+                            @error('photoshop')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
+                            @enderror
 
                         </div>
 
                     </div><!-- /.box-body -->
 
                     <div class="box-footer">
-                        <input type="hidden" name="id" value="{{$data->id}}">
+                        <input type="hidden" name="id" value="{{ $data->id }}">
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>

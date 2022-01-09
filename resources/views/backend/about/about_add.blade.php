@@ -60,29 +60,30 @@
                                 <input type="number" value="{{old('donation')}}" class="form-control" name="donation"  id="donation"
                                     placeholder="Enter donation in number">
                             </div>
-                            @error('email')
+                            @error('donation')
                             <div class="alert alert-danger alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                 {{$message}}
                               </div>
                             @enderror
                             <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="number" value="{{old('phone')}}" name="phone" class="form-control" id="exampleInputEmail1"
-                                    placeholder="Enter Phone Number">
+                                <label for="project">Project in a Number</label>
+                                <input type="number" value="{{old('project')}}" name="project" class="form-control" id="project"
+                                    placeholder="Enter project in a Number">
                             </div>
-                            @error('phone')
+                            @error('project')
                             <div class="alert alert-danger alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                 {{$message}}
                               </div>
                             @enderror
                             <div class="form-group">
-                                <label for="address">Enter Address</label>
-                                <textarea name="address" class="form-control" id="address" cols="30" rows="5"
-                                    placeholder="Enter Address">{{old('address')}}</textarea>
+                                <label for="volunteers">Enter Volunteers in a Number</label>
+                                <input type="number" value="{{old('volunteers')}}" name="volunteers" class="form-control" id="volunteers"
+                                    placeholder="Enter volunteers in a Number">
+
                             </div>
-                            @error('address')
+                            @error('volunteers')
                             <div class="alert alert-danger alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                 {{$message}}
@@ -91,46 +92,54 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="designation">Designation</label>
-                                <input type="text" class="form-control" name="designation" value="{{old('designation')}}" id="designation"
-                                    placeholder="Enter Your Designation">
+                                <label for="web_design">Web Design skrill in %</label>
+                                <input type="number" class="form-control" name="web_design" value="{{old('web_design')}}" id="web_design"
+                                    placeholder="Enter Your Web Design Skrill in %">
                             </div>
-                            @error('designation')
+                            @error('web_design')
                             <div class="alert alert-danger alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                 {{$message}}
                               </div>
                             @enderror
                             <div class="form-group">
-                                <label for="details">Details Paragraph</label>
-                                <textarea name="details" class="form-control" id="details" cols="30" rows="5"
-                                    placeholder="Enter details paragraph">{{old('details')}}</textarea>
+                                <label for="web_development">Web Development skrill in %</label>
+                                <input type="number" class="form-control" name="web_development" value="{{old('web_development')}}" id="web_development"
+                                    placeholder="Enter Your Web Development Skrill in %">
                             </div>
-                            @error('details')
+                            @error('web_development')
                             <div class="alert alert-danger alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                 {{$message}}
                               </div>
                             @enderror
                             <div class="form-group">
-                                <label for="date">Date of Birth</label>
-                                <input type="date" name="date" value="{{old('date')}}" class="form-control" id="date">
+                                <label for="laravel">Laravel Skrill in %</label>
+                                <input type="number" name="laravel" value="{{old('laravel')}}" class="form-control" placeholder="Enter Wordpress skrill in %" id="laravel">
                             </div>
-                            @error('date')
+                            @error('laravel')
                             <div class="alert alert-danger alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                 {{$message}}
                               </div>
                             @enderror
                             <div class="form-group">
-                                <label for="exampleInputFile">Image File</label>
-                                <input type="file" name="file" id="exampleInputFile">
-                                <p class="help-block">Image Must be Width:668px and Height:690px.</p>
+                                <label for="wordpress">Wordpress Skrill in %</label>
+                                <input type="number" value="{{old('wordpress')}}" name="wordpress" id="wordpress" class="form-control" placeholder="Enter Wordpress skrill in %">
                             </div>
-                            @error('file')
+                            @error('wordpress')
                             <div class="alert alert-danger alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                Image Must be Width:668px and Height:690px. <br>
+                                {{$message}}
+                              </div>
+                            @enderror
+                            <div class="form-group">
+                                <label for="wordpress">Photoshop Skrill in %</label>
+                                <input type="number" value="{{old('photoshop')}}" name="photoshop" id="photoshop" class="form-control" placeholder="Enter Photoshop skrill in %">
+                            </div>
+                            @error('photoshop')
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                 {{$message}}
                               </div>
                             @enderror
