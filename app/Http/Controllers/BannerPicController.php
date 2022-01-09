@@ -32,7 +32,7 @@ class BannerPicController extends Controller
             'phone' => 'required|min:11|max:14',
             'email' => 'required|email:rfc,dns',
             'address' => 'required|max:60',
-            'file' => 'required|image|mimes:jpg,bmp,png|dimensions:ratio=668/690',
+            'file' => 'required|image|max:500|mimes:jpg,bmp,png|dimensions:ratio=668/690',
         ]);
 
 
@@ -105,13 +105,13 @@ class BannerPicController extends Controller
         if ($request->hasFile('file')) {
 
             $request->validate([
-                'file' => 'required|image|mimes:jpg,bmp,png|dimensions:ratio=668/690',
+                'file' => 'required|image|max:500|mimes:jpg,bmp,png|dimensions:ratio=668/690',
             ]);
 
 
             $model = BannerPic::find($id);
 
-            if (file_exists( public_path('profilePic\\' . $model->pic_name))) {
+            if (file_exists(public_path('profilePic\\' . $model->pic_name))) {
                 unlink(public_path('profilePic\\' . $model->pic_name));
                 $model->pic_name = "";
             }
@@ -133,7 +133,9 @@ class BannerPicController extends Controller
         $model->phone = $phone;
         $model->email = $email;
         $model->address = $address;
-        $model->pic_name = $imageName;
+        if ($request->hasFile('file')) {
+            $model->pic_name = $imageName;
+        }
         $model->status = 0;
         $model->update();
 
@@ -147,10 +149,10 @@ class BannerPicController extends Controller
         $result = BannerPic::find($id);
         $result->pic_name;
 
-       // $path = public_path('profilePic\\' . $result->pic_name);
-        if (file_exists( public_path('profilePic\\' . $result->pic_name))) {
+        // $path = public_path('profilePic\\' . $result->pic_name);
+        if (file_exists(public_path('profilePic\\' . $result->pic_name))) {
             unlink(public_path('profilePic\\' . $result->pic_name));
-          }
+        }
 
         BannerPic::destroy($id);
 

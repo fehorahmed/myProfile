@@ -313,12 +313,12 @@
                     <ul class="sidebar-menu">
                         <li class="header">MAIN NAVIGATION</li>
                         <li class="@yield('dashboard_status') treeview">
-                            <a href="#">
+                            <a href="">
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i
                                     class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="active"><a href=""><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+                                <li class="@yield('dashboard_status')"><a href="{{route('dashboard')}}"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
                             </ul>
                         </li>
 
@@ -368,6 +368,20 @@
                             <ul class="treeview-menu">
                                 <li class="@yield('about_status')"><a href="{{route('admin.about')}}"><i class="fa fa-circle-o"></i>About Section</a></li>
                             </ul>
+                            <ul class="treeview-menu">
+                                <li class="@yield('experience_status')"><a href="{{route('admin.experience')}}"><i class="fa fa-circle-o"></i>Experience Section</a></li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li class="@yield('education_status')"><a href="{{route('admin.education')}}"><i class="fa fa-circle-o"></i>Education Section</a></li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li class="@yield('service_status')"><a href="{{route('admin.service')}}"><i class="fa fa-circle-o"></i>Service Section</a></li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li class="@yield('project_status')"><a href="{{route('admin.project')}}"><i class="fa fa-circle-o"></i>Project Section</a></li>
+                            </ul>
+
+
                         </li>
 
 

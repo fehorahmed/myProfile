@@ -103,7 +103,8 @@
                         <div class="d-flex">
                             {{-- 668px*690px --}}
                             @if ($banner->isNotEmpty())
-                                <img src="{{ asset('profilePic/' . $banner[0]->pic_name) }}" alt="This is my picture">
+                                <img src="{{ asset('profilePic/' . $banner[0]->pic_name) }}"
+                                    alt="This is my picture">
                             @else
                                 <img src="{{ asset('assets/img/personal.jpg') }}" alt="This is my picture">
                             @endif
@@ -242,7 +243,7 @@
                                     </div>
                                 </div>
                                 <div class="skill_item">
-                                    <h4>Illustrator <span class="counter">{{ $about[0]->laravel }}</span>%</h4>
+                                    <h4>Laravel <span class="counter">{{ $about[0]->laravel }}</span>%</h4>
                                     <div class="progress_br">
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar"
@@ -252,7 +253,8 @@
                                     </div>
                                 </div>
                                 <div class="skill_item">
-                                    <h4>Sublime <span class="counter">{{ $about[0]->wordpress }}</span>%</h4>
+                                    <h4>Wordpress <span class="counter">{{ $about[0]->wordpress }}</span>%
+                                    </h4>
                                     <div class="progress_br">
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar"
@@ -262,7 +264,8 @@
                                     </div>
                                 </div>
                                 <div class="skill_item">
-                                    <h4>Sketch <span class="counter">{{ $about[0]->photoshop }}</span>%</h4>
+                                    <h4>Photoshop <span class="counter">{{ $about[0]->photoshop }}</span>%
+                                    </h4>
                                     <div class="progress_br">
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar"
@@ -275,7 +278,7 @@
                         @else
                             <div class="skill_main">
                                 <div class="skill_item">
-                                    <h4>After Effects <span class="counter">50</span>%</h4>
+                                    <h4>Web Design <span class="counter">50</span>%</h4>
                                     <div class="progress_br">
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar" aria-valuenow="50"
@@ -284,7 +287,7 @@
                                     </div>
                                 </div>
                                 <div class="skill_item">
-                                    <h4>Photoshop <span class="counter">90</span>%</h4>
+                                    <h4>Web Development <span class="counter">50</span>%</h4>
                                     <div class="progress_br">
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar" aria-valuenow="50"
@@ -293,7 +296,7 @@
                                     </div>
                                 </div>
                                 <div class="skill_item">
-                                    <h4>Illustrator <span class="counter">50</span>%</h4>
+                                    <h4>Laravel <span class="counter">50</span>%</h4>
                                     <div class="progress_br">
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar" aria-valuenow="50"
@@ -302,7 +305,7 @@
                                     </div>
                                 </div>
                                 <div class="skill_item">
-                                    <h4>Sublime <span class="counter">50</span>%</h4>
+                                    <h4>Wordpress <span class="counter">50</span>%</h4>
                                     <div class="progress_br">
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar" aria-valuenow="50"
@@ -311,7 +314,7 @@
                                     </div>
                                 </div>
                                 <div class="skill_item">
-                                    <h4>Sketch <span class="counter">50</span>%</h4>
+                                    <h4>Photoshop <span class="counter">50</span>%</h4>
                                     <div class="progress_br">
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar" aria-valuenow="50"
@@ -344,84 +347,140 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <ul class="list">
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>March 2017 to present</p>
+                        @if ($experience->isNotEmpty())
+                            <ul class="list">
+                                @foreach ($experience as $exp)
+                                    <li>
+                                        <span></span>
+                                        <div class="media">
+                                            <div class="d-flex">
+                                                <p class="list-p">{{ $exp->start_date }} to
+                                                    @if ($exp->end_date != null)
+                                                        {{ $exp->end_date }}
+                                                    @else
+                                                        Present
+                                                    @endif
+                                                </p>
+                                            </div>
+                                            <div class="media-body exp-custom">
+                                                <h4>{{ $exp->company_name }}</h4>
+                                                <p>{{ $exp->designation }}
+                                                    <br />
+                                                    {{ $exp->address }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <ul class="list">
+                                <li>
+                                    <span></span>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <p>March 2017 to present</p>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4>Colorlib</h4>
+                                            <p>Senior Web Developer <br />Santa monica, Los angeles</p>
+                                        </div>
                                     </div>
-                                    <div class="media-body">
-                                        <h4>Colorlib</h4>
-                                        <p>Senior Web Developer <br />Santa monica, Los angeles</p>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <p>March 2017 to present</p>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4>Colorlib</h4>
+                                            <p>Senior Web Developer <br />Santa monica, Los angeles</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>March 2017 to present</p>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <p>March 2017 to present</p>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4>Colorlib</h4>
+                                            <p>Senior Web Developer <br />Santa monica, Los angeles</p>
+                                        </div>
                                     </div>
-                                    <div class="media-body">
-                                        <h4>Colorlib</h4>
-                                        <p>Senior Web Developer <br />Santa monica, Los angeles</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>March 2017 to present</p>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Colorlib</h4>
-                                        <p>Senior Web Developer <br />Santa monica, Los angeles</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                                </li>
+                            </ul>
+                        @endif
+
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <ul class="list">
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>March 2017 to present</p>
+                        @if ($education->isNotEmpty())
+                            <ul class="list">
+                                @foreach ($education as $edu)
+
+                                @endforeach
+                                <li>
+                                    <span></span>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <p class="list-p">{{ $edu->start_date }} to
+                                                @if ($edu->end_date != null)
+                                                    {{ $edu->end_date }}
+                                                @else
+                                                    Present
+                                                @endif
+                                            </p>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4>{{ $edu->exam }}</h4>
+                                            <p>{{ $edu->college }} <br />Result: {{ $edu->result }}</p>
+                                        </div>
                                     </div>
-                                    <div class="media-body">
-                                        <h4>2nd</h4>
-                                        <p>Senior Web Developer <br />Santa monica, Los angeles</p>
+                                </li>
+                            </ul>
+                        @else
+                            <ul class="list">
+                                <li>
+                                    <span></span>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <p>March 2017 to present</p>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4>2nd</h4>
+                                            <p>Senior Web Developer <br />Santa monica, Los angeles</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>March 2017 to present</p>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <p>March 2017 to present</p>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4>Colorlib</h4>
+                                            <p>Senior Web Developer <br />Santa monica, Los angeles</p>
+                                        </div>
                                     </div>
-                                    <div class="media-body">
-                                        <h4>Colorlib</h4>
-                                        <p>Senior Web Developer <br />Santa monica, Los angeles</p>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <p>March 2017 to present</p>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4>Colorlib</h4>
+                                            <p>Senior Web Developer <br />Santa monica, Los angeles</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>March 2017 to present</p>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Colorlib</h4>
-                                        <p>Senior Web Developer <br />Santa monica, Los angeles</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                                </li>
+                            </ul>
+                        @endif
+
                     </div>
                 </div>
             </div>
@@ -438,30 +497,52 @@
                     price. You may see some for as low as $.17 each.</p>
             </div>
             <div class="feature_inner row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature_item">
-                        <i class="flaticon-city"></i>
-                        <h4>Architecture</h4>
-                        <p>If you are looking at blank cassettes on the web, you may be very confused at the difference
-                            in price. You may see some for as low as $17 each.</p>
+                @if ($service->isNotEmpty())
+                    @foreach ($service as $ser)
+
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="feature_item">
+                                <img class="f-img" src="{{ asset('servicePic/' . $ser->file) }}" width="80"
+                                    alt="">
+                                {{-- <i class="flaticon-city"></i> --}}
+                                <h4>{{ $ser->service }}</h4>
+                                <p>{{ $ser->details }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature_item">
+                            <img class="f-img" src="{{ asset('assets/img/personal.jpg') }}" width="80"
+                                alt="">
+                            {{-- <i class="flaticon-city"></i> --}}
+                            <h4>Architecture</h4>
+                            <p>If you are looking at blank cassettes on the web, you may be very confused at the
+                                difference
+                                in price. You may see some for as low as $17 each.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature_item">
-                        <i class="flaticon-skyline"></i>
-                        <h4>Interior Design</h4>
-                        <p>If you are looking at blank cassettes on the web, you may be very confused at the difference
-                            in price. You may see some for as low as $17 each.</p>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature_item">
+                            <i class="flaticon-skyline"></i>
+                            <h4>Interior Design</h4>
+                            <p>If you are looking at blank cassettes on the web, you may be very confused at the
+                                difference
+                                in price. You may see some for as low as $17 each.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature_item">
-                        <i class="flaticon-sketch"></i>
-                        <h4>Concept Design</h4>
-                        <p>If you are looking at blank cassettes on the web, you may be very confused at the difference
-                            in price. You may see some for as low as $17 each.</p>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature_item">
+                            <i class="flaticon-sketch"></i>
+                            <h4>Concept Design</h4>
+                            <p>If you are looking at blank cassettes on the web, you may be very confused at the
+                                difference
+                                in price. You may see some for as low as $17 each.</p>
+                        </div>
                     </div>
-                </div>
+                @endif
+
             </div>
         </div>
     </section>

@@ -3010,3 +3010,15 @@ h6 {
 .b-ancor{
     display: inline-block;
 }
+.exp-custom{
+    margin-left: 10px;
+}
+.tabs_inner .tab-content .tab-pane .list {
+    max-width: 530px;
+}
+.list-p{
+    width: 190px;
+}
+.f-img{
+    margin-bottom: 35px;
+}
