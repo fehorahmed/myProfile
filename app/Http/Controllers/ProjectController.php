@@ -48,19 +48,21 @@ class ProjectController extends Controller
 
         $model = new Project();
 
-        $model->service = $service;
-        $model->details = $details;
+        $model->name = $name;
+        $model->group_name = $group_name;
+        $model->about = $about;
+        $model->link = $link;
         $model->file = $imageName;
         $model->status = 0;
         $model->save();
 
-        return redirect()->route('admin.service')->with('message', 'Successfully Service Added.');
+        return redirect()->route('admin.project')->with('message', 'Successfully Project Added.');
     }
 
     public function edit($id)
     {
-        $result['data'] = Service::findOrFail($id);
-        return view('backend.service.service_edit', $result);
+        $result['data'] = Project::findOrFail($id);
+        return view('backend.project.project_edit', $result);
     }
 
 
@@ -68,63 +70,68 @@ class ProjectController extends Controller
     {
         $request->validate([
             'id' => 'required|numeric',
-            'service' => 'required|max:30',
-            'details' => 'required|max:200',
+            'group_name' => 'required|max:30',
+            'about' => 'required|max:200',
+            'link' => 'required|max:200',
 
         ]);
 
 
         $id = $request->post('id');
 
-        $service = $request->post('service');
-        $details = $request->post('details');
+        $name = $request->post('name');
+        $group_name = $request->post('group_name');
+        $about = $request->post('about');
+        $link = $request->post('link');
         if ($request->hasFile('file')) {
 
             $request->validate([
                 'file' => 'required|image|max:200|mimes:jpg,bmp,png|dimensions:ratio=100/100',
             ]);
-            $model = Service::find($id);
+            $model = Project::find($id);
 
-            if (file_exists(public_path('servicePic\\' . $model->file))) {
-                unlink(public_path('servicePic\\' . $model->file));
+            if (file_exists(public_path('projectPic\\' . $model->file))) {
+                unlink(public_path('projectPic\\' . $model->file));
                 $model->file = "";
             }
 
             $imageName = time() . '.' . $request->file('file')->extension();
-            $request->file('file')->move(public_path('servicePic'), $imageName);
+            $request->file('file')->move(public_path('projectPic'), $imageName);
         }
 
         // $request->file('file')->store('', $imageName);
         // $path = $request->file('file')->storeAs('profilePic',$imageName);
 
 
-        $model = Service::find($id);
+        $model = Project::find($id);
 
-        $model->service = $service;
-        $model->details = $details;
+        $model->name = $name;
+        $model->group_name = $group_name;
+        $model->about = $about;
+        $model->link = $link;
         if ($request->hasFile('file')) {
             $model->file = $imageName;
         }
         $model->status = 0;
         $model->update();
 
-        return redirect()->route('admin.service')->with('message', 'Successfully Service Updated.');
+        return redirect()->route('admin.project')->with('message', 'Successfully Project Updated.');
     }
 
 
     public function destroy($id)
     {
 
-        $result = Service::find($id);
+        $result = Project::find($id);
 
         // $path = public_path('profilePic\\' . $result->pic_name);
-        if (file_exists(public_path('servicePic\\' . $result->file))) {
-            unlink(public_path('servicePic\\' . $result->file));
+        if (file_exists(public_path('projectPic\\' . $result->file))) {
+            unlink(public_path('projectPic\\' . $result->file));
         }
 
-        Service::destroy($id);
+        Project::destroy($id);
 
-        return redirect()->back()->with('message', 'Successfully Service Deleted.');
+        return redirect()->back()->with('message', 'Successfully Project Deleted.');
     }
 
 
@@ -133,7 +140,7 @@ class ProjectController extends Controller
     {
 
         // Service::query()->update(['status' => 0]);
-        $model = Service::find($id);
+        $model = Project::find($id);
         $model->status = 1;
         $model->update();
 

@@ -12,6 +12,10 @@
         <h1>
             @yield('title')
             <small>Edit Project</small>
+{{--
+            @if ($errors->any())
+                {{ implode('', $errors->all('<div>:message</div>')) }}
+            @endif --}}
         </h1>
         <ol class="breadcrumb">
             <li class="active"><i class="fa fa-dashboard"></i> @yield('title')</li>
@@ -26,7 +30,7 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Project Edit Section</h3>
-                        <a href="{{ route('admin.service') }}"><button
+                        <a href="{{ route('admin.project') }}"><button
                                 class="btn btn-primary pull-right">Back</button></a>
 
                     </div><!-- /.box-header -->
@@ -47,7 +51,7 @@
                             <div class="form-group">
                                 <label for="name">Project Name</label>
                                 <input type="text" class="form-control" name="name"
-                                    value="{{ old('name', $data->service) }}" id="name"
+                                    value="{{ old('name', $data->name) }}" id="name"
                                     placeholder="Enter Your Project Name">
                             </div>
                             @error('name')
@@ -58,11 +62,11 @@
                                 </div>
                             @enderror
                             <div class="form-group">
-                                <label for="details">Details about Service</label>
-                                <textarea name="details" class="form-control" id="details" cols="30" rows="5"
-                                    placeholder="Enter details paragraph">{{ old('details', $data->details) }}</textarea>
+                                <label for="about">About Project</label>
+                                <textarea name="about" class="form-control" id="about" cols="30" rows="5"
+                                    placeholder="Enter About Project">{{ old('about', $data->about) }}</textarea>
                             </div>
-                            @error('details')
+                            @error('about')
                                 <div class="alert alert-danger alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert"
                                         aria-hidden="true">×</button>
@@ -73,13 +77,48 @@
                         </div>
                         <div class="col-md-6">
 
+                            <div class="form-group">
+                                <label>Group Name</label>
+                                <select name="group_name" id="group_name"
+                                    class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                                    tabindex="-1" aria-hidden="true">
+                                    <option selected>{{ $data->group_name }}</option>
+                                    <option>Alaska</option>
+                                    <option>Delaware</option>
+                                    <option>Tennessee</option>
+                                    <option>Texas</option>
+                                    <option>Washington</option>
+                                </select>
+                            </div>
+                            @error('group_name')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
+                            @enderror
 
                             <div class="form-group">
-                                <img src="{{ asset('servicePic/' . $data->file) }}" width="80" alt="">
+                                <label for="link">Project Link</label>
+                                <input type="text" class="form-control" name="link"
+                                    value="{{ old('link', $data->link) }}" id="link"
+                                    placeholder="Enter Your Project Link">
+                                    <p class="help-block">Link like: https://www.fehor.laundry.idbdev.com/</p>
+                            </div>
+                            @error('link')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
+                            @enderror
+
+                            <div class="form-group">
+                                <img src="{{ asset('projectPic/' . $data->file) }}" width="80" alt="">
                                 <br>
-                                <label for="exampleInputFile">Image File</label>
-                                <input type="file" name="file" id="exampleInputFile">
-                                <p class="help-block">Image Must be Width: 100px and Height: 100px.</p>
+                                <label for="file">Image File</label>
+                                <input type="file" name="file" id="file">
+                                <p class="help-block">Image Must be Width: 340px and Height: 340px.</p>
                             </div>
                             @error('file')
                                 <div class="alert alert-danger alert-dismissable">

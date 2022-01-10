@@ -75,27 +75,15 @@
                         <div class="col-md-6">
 
                             <div class="form-group">
-                                <label>Disabled Result</label>
+                                <label>Group Name</label>
                                 <select name="group_name" class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                     tabindex="-1" aria-hidden="true">
-                                    <option selected="selected">Alabama</option>
-                                    <option>Alaska</option>
-                                    <option disabled="disabled">California (disabled)</option>
-                                    <option>Delaware</option>
-                                    <option>Tennessee</option>
-                                    <option>Texas</option>
-                                    <option>Washington</option>
-                                </select><span
-                                    class="select2 select2-container select2-container--default select2-container--below"
-                                    dir="ltr" style="width: 100%;"><span class="selection"><span
-                                            class="select2-selection select2-selection--single" role="combobox"
-                                            aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"
-                                            tabindex="0" aria-labelledby="select2-mpnc-container"><span
-                                                class="select2-selection__rendered" id="select2-mpnc-container"
-                                                title="Alabama">Alabama</span><span class="select2-selection__arrow"
-                                                role="presentation"><b
-                                                    role="presentation"></b></span></span></span><span
-                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                    <option value="" selected="selected">Select One</option>
+                                    <option>brand</option>
+                                    <option>manipul</option>
+                                    <option>creative</option>
+                                    <option>design</option>
+                                </select>
                             </div>
                             @error('group_name')
                                 <div class="alert alert-danger alert-dismissable">
@@ -109,6 +97,7 @@
                                 <label for="link">Project Link</label>
                                 <input type="text" class="form-control" name="link" value="{{ old('link') }}"
                                     id="link" placeholder="Enter Your Project Link">
+                                    <p class="help-block">Link like: https://www.fehor.laundry.idbdev.com/</p>
                             </div>
                             @error('link')
                                 <div class="alert alert-danger alert-dismissable">
@@ -122,6 +111,7 @@
                                 <label for="file">Image File</label>
                                 <input type="file" class="form-control" name="file" id="file">
                                 <p class="help-block">Image Must be Width:100px and Height:100px.</p>
+
                             </div>
                             @error('file')
                                 <div class="alert alert-danger alert-dismissable">

@@ -420,25 +420,26 @@
                             <ul class="list">
                                 @foreach ($education as $edu)
 
+
+                                    <li>
+                                        <span></span>
+                                        <div class="media">
+                                            <div class="d-flex">
+                                                <p class="list-p">{{ $edu->start_date }} to
+                                                    @if ($edu->end_date != null)
+                                                        {{ $edu->end_date }}
+                                                    @else
+                                                        Present
+                                                    @endif
+                                                </p>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4>{{ $edu->exam }}</h4>
+                                                <p>{{ $edu->college }} <br />Result: {{ $edu->result }}</p>
+                                            </div>
+                                        </div>
+                                    </li>
                                 @endforeach
-                                <li>
-                                    <span></span>
-                                    <div class="media">
-                                        <div class="d-flex">
-                                            <p class="list-p">{{ $edu->start_date }} to
-                                                @if ($edu->end_date != null)
-                                                    {{ $edu->end_date }}
-                                                @else
-                                                    Present
-                                                @endif
-                                            </p>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4>{{ $edu->exam }}</h4>
-                                            <p>{{ $edu->college }} <br />Result: {{ $edu->result }}</p>
-                                        </div>
-                                    </div>
-                                </li>
                             </ul>
                         @else
                             <ul class="list">
@@ -566,86 +567,110 @@
             </div>
         </div>
         <div class="container">
-            <div class="gallery_f_inner row imageGallery1">
-                <div class="col-lg-4 col-md-4 col-sm-6 brand manipul design print">
-                    <div class="h_gallery_item">
-                        <div class="g_img_item">
-                            <img class="img-fluid" src="img/gallery/project-1.jpg" alt="Projects Picture">
-                            <a class="light" href="img/gallery/project-1.jpg"><img src="img/gallery/icon.png"
-                                    alt=""></a>
+            @if ($project->isNotEmpty())
+                <div class="gallery_f_inner row imageGallery1">
+                    @foreach ($project as $pro)
+                        <div class="col-lg-4 col-md-4 col-sm-6 brand manipul design print">
+                            <div class="h_gallery_item">
+                                <div class="g_img_item">
+                                    <img class="img-fluid" src="{{asset('projectPic/'.$pro->file)}}" alt="Projects Picture">
+                                    <a class="light" href="img/gallery/project-1.jpg"><img
+                                            src="img/gallery/icon.png" alt=""></a>
+                                </div>
+                                <div class="g_item_text">
+                                    <h4>{{$pro->name}}</h4>
+                                    <p>{{$pro->about}}</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="g_item_text">
-                            <h4>3D Helmet Design</h4>
-                            <p>Client Project</p>
+                    @endforeach
+
+
+                </div>
+            @else
+                <div class="gallery_f_inner row imageGallery1">
+
+                    <div class="col-lg-4 col-md-4 col-sm-6 brand manipul design print">
+                        <div class="h_gallery_item">
+                            <div class="g_img_item">
+                                <img class="img-fluid" src="img/gallery/project-1.jpg" alt="Projects Picture">
+                                <a class="light" href="img/gallery/project-1.jpg"><img
+                                        src="img/gallery/icon.png" alt=""></a>
+                            </div>
+                            <div class="g_item_text">
+                                <h4>3D Helmet Design</h4>
+                                <p>Client Project</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 brand manipul creative">
+                        <div class="h_gallery_item">
+                            <div class="g_img_item">
+                                <img class="img-fluid" src="img/gallery/project-2.jpg" alt="Projects Picture">
+                                <a class="light" href="img/gallery/project-2.jpg"><img
+                                        src="img/gallery/icon.png" alt="Projects Icon"></a>
+                            </div>
+                            <div class="g_item_text">
+                                <h4>2D Vinyl Design</h4>
+                                <p>Client Project</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 manipul creative design print">
+                        <div class="h_gallery_item">
+                            <div class="g_img_item">
+                                <img class="img-fluid" src="img/gallery/project-3.jpg" alt="Projects Picture">
+                                <a class="light" href="img/gallery/project-3.jpg"><img
+                                        src="img/gallery/icon.png" alt=""></a>
+                            </div>
+                            <div class="g_item_text">
+                                <h4>Creative Poster Design</h4>
+                                <p>Client Project</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 brand creative print">
+                        <div class="h_gallery_item">
+                            <div class="g_img_item">
+                                <img class="img-fluid" src="img/gallery/project-4.jpg" alt="Projects Picture">
+                                <a class="light" href="img/gallery/project-4.jpg"><img
+                                        src="img/gallery/icon.png" alt=""></a>
+                            </div>
+                            <div class="g_item_text">
+                                <h4>Embosed Logo Design</h4>
+                                <p>Client Project</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 brand manipul design">
+                        <div class="h_gallery_item">
+                            <div class="g_img_item">
+                                <img class="img-fluid" src="img/gallery/project-5.jpg" alt="Projects Picture">
+                                <a class="light" href="img/gallery/project-5.jpg"><img
+                                        src="img/gallery/icon.png" alt=""></a>
+                            </div>
+                            <div class="g_item_text">
+                                <h4>3D Disposable Bottle</h4>
+                                <p>Client Project</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 brand creative">
+                        <div class="h_gallery_item">
+                            <div class="g_img_item">
+                                <img class="img-fluid" src="img/gallery/project-6.jpg" alt="Projects Picture">
+                                <a class="light" href="img/gallery/project-6.jpg"><img
+                                        src="img/gallery/icon.png" alt=""></a>
+                            </div>
+                            <div class="g_item_text">
+                                <h4>3D Logo Design</h4>
+                                <p>Client Project</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 brand manipul creative">
-                    <div class="h_gallery_item">
-                        <div class="g_img_item">
-                            <img class="img-fluid" src="img/gallery/project-2.jpg" alt="Projects Picture">
-                            <a class="light" href="img/gallery/project-2.jpg"><img src="img/gallery/icon.png"
-                                    alt="Projects Icon"></a>
-                        </div>
-                        <div class="g_item_text">
-                            <h4>2D Vinyl Design</h4>
-                            <p>Client Project</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 manipul creative design print">
-                    <div class="h_gallery_item">
-                        <div class="g_img_item">
-                            <img class="img-fluid" src="img/gallery/project-3.jpg" alt="Projects Picture">
-                            <a class="light" href="img/gallery/project-3.jpg"><img src="img/gallery/icon.png"
-                                    alt=""></a>
-                        </div>
-                        <div class="g_item_text">
-                            <h4>Creative Poster Design</h4>
-                            <p>Client Project</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 brand creative print">
-                    <div class="h_gallery_item">
-                        <div class="g_img_item">
-                            <img class="img-fluid" src="img/gallery/project-4.jpg" alt="Projects Picture">
-                            <a class="light" href="img/gallery/project-4.jpg"><img src="img/gallery/icon.png"
-                                    alt=""></a>
-                        </div>
-                        <div class="g_item_text">
-                            <h4>Embosed Logo Design</h4>
-                            <p>Client Project</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 brand manipul design">
-                    <div class="h_gallery_item">
-                        <div class="g_img_item">
-                            <img class="img-fluid" src="img/gallery/project-5.jpg" alt="Projects Picture">
-                            <a class="light" href="img/gallery/project-5.jpg"><img src="img/gallery/icon.png"
-                                    alt=""></a>
-                        </div>
-                        <div class="g_item_text">
-                            <h4>3D Disposable Bottle</h4>
-                            <p>Client Project</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 brand creative">
-                    <div class="h_gallery_item">
-                        <div class="g_img_item">
-                            <img class="img-fluid" src="img/gallery/project-6.jpg" alt="Projects Picture">
-                            <a class="light" href="img/gallery/project-6.jpg"><img src="img/gallery/icon.png"
-                                    alt=""></a>
-                        </div>
-                        <div class="g_item_text">
-                            <h4>3D Logo Design</h4>
-                            <p>Client Project</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endif
+
             <div class="more_btn">
                 <a class="main_btn" href="#">Load More Items</a>
             </div>

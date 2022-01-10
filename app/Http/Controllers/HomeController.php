@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\BannerPic;
 use App\Models\Education;
 use App\Models\experience;
+use App\Models\Project;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,7 @@ class HomeController extends Controller
         $result['experience'] = experience::where(['status' => 1])->get();
         $result['education'] = Education::where(['status' => 1])->get();
         $result['service'] = Service::where(['status' => 1])->get();
+        $result['project'] = Project::where(['status' => 1])->get();
 
 
         // return $result['experience'][0];
