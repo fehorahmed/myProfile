@@ -110,7 +110,7 @@
                             <div class="form-group">
                                 <label for="file">Image File</label>
                                 <input type="file" class="form-control" name="file" id="file">
-                                <p class="help-block">Image Must be Width:100px and Height:100px.</p>
+                                <p class="help-block">Image Must be Width:340px and Height:340px.</p>
 
                             </div>
                             @error('file')

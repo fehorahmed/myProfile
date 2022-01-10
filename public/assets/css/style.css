@@ -3022,3 +3022,7 @@ h6 {
 .f-img{
     margin-bottom: 35px;
 }
+.contact_area{
+    background-color: white; /* For browsers that do not support gradients */
+    background-image: linear-gradient(violet, white, white, white, white, white, violet);
+}

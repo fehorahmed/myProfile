@@ -267,7 +267,7 @@
                                                     @csrf
 
                                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
+                                                        this.closest('form').submit();">
                                                         {{ __('Log Out') }}
                                                     </a>
                                                 </form>
@@ -318,7 +318,8 @@
                                     class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="@yield('dashboard_status')"><a href="{{route('dashboard')}}"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+                                <li class="@yield('dashboard_status')"><a href="{{ route('dashboard') }}"><i
+                                            class="fa fa-circle-o"></i> Dashboard v1</a></li>
                             </ul>
                         </li>
 
@@ -363,22 +364,28 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="@yield('banner_status')"><a href="{{route('admin.banner')}}"><i class="fa fa-circle-o"></i>Banner & Picture</a></li>
+                                <li class="@yield('banner_status')"><a href="{{ route('admin.banner') }}"><i
+                                            class="fa fa-circle-o"></i>Banner & Picture</a></li>
                             </ul>
                             <ul class="treeview-menu">
-                                <li class="@yield('about_status')"><a href="{{route('admin.about')}}"><i class="fa fa-circle-o"></i>About Section</a></li>
+                                <li class="@yield('about_status')"><a href="{{ route('admin.about') }}"><i
+                                            class="fa fa-circle-o"></i>About Section</a></li>
                             </ul>
                             <ul class="treeview-menu">
-                                <li class="@yield('experience_status')"><a href="{{route('admin.experience')}}"><i class="fa fa-circle-o"></i>Experience Section</a></li>
+                                <li class="@yield('experience_status')"><a href="{{ route('admin.experience') }}"><i
+                                            class="fa fa-circle-o"></i>Experience Section</a></li>
                             </ul>
                             <ul class="treeview-menu">
-                                <li class="@yield('education_status')"><a href="{{route('admin.education')}}"><i class="fa fa-circle-o"></i>Education Section</a></li>
+                                <li class="@yield('education_status')"><a href="{{ route('admin.education') }}"><i
+                                            class="fa fa-circle-o"></i>Education Section</a></li>
                             </ul>
                             <ul class="treeview-menu">
-                                <li class="@yield('service_status')"><a href="{{route('admin.service')}}"><i class="fa fa-circle-o"></i>Service Section</a></li>
+                                <li class="@yield('service_status')"><a href="{{ route('admin.service') }}"><i
+                                            class="fa fa-circle-o"></i>Service Section</a></li>
                             </ul>
                             <ul class="treeview-menu">
-                                <li class="@yield('project_status')"><a href="{{route('admin.project')}}"><i class="fa fa-circle-o"></i>Project Section</a></li>
+                                <li class="@yield('project_status')"><a href="{{ route('admin.project') }}"><i
+                                            class="fa fa-circle-o"></i>Project Section</a></li>
                             </ul>
 
 
@@ -386,18 +393,18 @@
 
 
 
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-edit"></i> <span>Viewer Message Option</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{route('admin.message')}}"><i class="fa fa-circle-o"></i> View Message</a>
+                                </li>
+
+                            </ul>
+                        </li>
                         {{-- <li class="treeview">
-              <a href="#">
-                <i class="fa fa-edit"></i> <span>Forms</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-                <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-                <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
               <a href="#">
                 <i class="fa fa-table"></i> <span>Tables</span>
                 <i class="fa fa-angle-left pull-right"></i>
@@ -650,7 +657,7 @@
                 </div>
             </aside><!-- /.control-sidebar -->
             <!-- Add the sidebar's background. This div must be placed
-                   immediately after the control sidebar -->
+                       immediately after the control sidebar -->
             <div class="control-sidebar-bg"></div>
         </div><!-- ./wrapper -->
     @endsection

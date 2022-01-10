@@ -83,11 +83,10 @@
                                     class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                     tabindex="-1" aria-hidden="true">
                                     <option selected>{{ $data->group_name }}</option>
-                                    <option>Alaska</option>
-                                    <option>Delaware</option>
-                                    <option>Tennessee</option>
-                                    <option>Texas</option>
-                                    <option>Washington</option>
+                                    <option>brand</option>
+                                    <option>manipul</option>
+                                    <option>creative</option>
+                                    <option>design</option>
                                 </select>
                             </div>
                             @error('group_name')

@@ -9,6 +9,7 @@ use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ViewerMessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,6 +89,15 @@ Route::middleware(['auth'])->group(function () {
      Route::get('/admin/project/edit/{id}', [ProjectController::class, 'edit'])->name('admin.project.edit');
      Route::post('/admin/project/update', [ProjectController::class, 'update'])->name('admin.project.update');
      Route::get('/admin/project/destroy/{id}', [ProjectController::class, 'destroy'])->name('admin.project.destroy');
+
+     // Viewer Message Section
+     Route::get('/admin/message', [ViewerMessageController::class, 'index'])->name('admin.message');
+     //Route::get('/admin/message/add', [ViewerMessageController::class, 'create'])->name('admin.message.add');
+      Route::post('/admin/message/add', [ViewerMessageController::class, 'store'])->name('admin.message.store');
+    //  Route::get('/admin/message/active/{id}', [ViewerMessageController::class, 'active'])->name('admin.message.active');
+    //  Route::get('/admin/message/edit/{id}', [ViewerMessageController::class, 'edit'])->name('admin.message.edit');
+    //  Route::post('/admin/message/update', [ViewerMessageController::class, 'update'])->name('admin.message.update');
+    //  Route::get('/admin/message/destroy/{id}', [ViewerMessageController::class, 'destroy'])->name('admin.message.destroy');
 
 
 

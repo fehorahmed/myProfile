@@ -20,6 +20,14 @@
     <!-- main css -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+
+
+    @if (session('message'))
+    <script>
+        alert({{session('message')}});
+    </script>
+
+    @endif
 </head>
 
 <body>
@@ -553,10 +561,10 @@
     <section class="home_gallery_area p_120">
         <div class="container">
             <div class="main_title">
-                <h2>Our Latest Featured Projects</h2>
+                <h2>My Latest Featured Projects</h2>
                 <p>Who are in extremely love with eco friendly system.</p>
             </div>
-            <div class="isotope_fillter">
+            {{-- <div class="isotope_fillter">
                 <ul class="gallery_filter list">
                     <li class="active" data-filter="*"><a href="#">All</a></li>
                     <li data-filter=".brand"><a href="#">Vector</a></li>
@@ -564,22 +572,23 @@
                     <li data-filter=".creative"><a href="#">UI/UX</a></li>
                     <li data-filter=".design"><a href="#">Printing</a></li>
                 </ul>
-            </div>
+            </div> --}}
         </div>
         <div class="container">
             @if ($project->isNotEmpty())
                 <div class="gallery_f_inner row imageGallery1">
                     @foreach ($project as $pro)
-                        <div class="col-lg-4 col-md-4 col-sm-6 brand manipul design print">
+                        <div class="col-lg-4 col-md-4 col-sm-6 brand manipul {{ $pro->group_name }} print">
                             <div class="h_gallery_item">
                                 <div class="g_img_item">
-                                    <img class="img-fluid" src="{{asset('projectPic/'.$pro->file)}}" alt="Projects Picture">
-                                    <a class="light" href="img/gallery/project-1.jpg"><img
-                                            src="img/gallery/icon.png" alt=""></a>
+                                    <img class="img-fluid" src="{{ asset('projectPic/' . $pro->file) }}"
+                                        alt="Projects Picture">
+                                    <a class="light" target="_blank" href="{{ $pro->link }}"><img
+                                            src="{{ asset('assets/img/icon.png') }}" alt=""></a>
                                 </div>
                                 <div class="g_item_text">
-                                    <h4>{{$pro->name}}</h4>
-                                    <p>{{$pro->about}}</p>
+                                    <h4>{{ $pro->name }}</h4>
+                                    <p>{{ $pro->about }}</p>
                                 </div>
                             </div>
                         </div>
@@ -679,7 +688,7 @@
     <!--================End Home Gallery Area =================-->
 
     <!--================Testimonials Area =================-->
-    <section class="testimonials_area p_120">
+    {{-- <section class="testimonials_area p_120">
         <div class="container">
             <div class="main_title">
                 <h2>Testimonials</h2>
@@ -727,8 +736,99 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--================End Testimonials Area =================-->
+
+    <!--================Contact Area =================-->
+    <section class="contact_area p_120">
+        <div class="container">
+            <div class="main_title">
+                <h2>Send message</h2>
+                <p>Who are in extremely love with eco friendly system.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="contact_info">
+                        <div class="info_item">
+                            <i class="lnr lnr-home"></i>
+                            <h6>{{ $banner[0]->address }}</h6>
+                            <p>Santa monica bullevard</p>
+                        </div>
+                        <div class="info_item">
+                            <i class="lnr lnr-phone-handset"></i>
+                            <h6><a href="#"></a>{{ $banner[0]->phone }}</h6>
+                            <p>Mon to Fri 9am to 6 pm</p>
+                        </div>
+                        <div class="info_item">
+                            <i class="lnr lnr-envelope"></i>
+                            <h6><a href="#">{{ $banner[0]->email }}</a></h6>
+                            <p>Send me your query anytime!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <form class="row contact_form" action="{{ route('admin.message.store') }}" method="post"
+                        id="contactForm" novalidate="novalidate">
+                        @csrf
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter your name">
+                            </div>
+                            @error('name')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Enter email address">
+                            </div>
+                            @error('email')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="subject" name="subject"
+                                    placeholder="Enter Subject">
+                            </div>
+                            @error('subject')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" id="message" rows="1"
+                                    placeholder="Enter Message"></textarea>
+                            </div>
+                            @error('message')
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">×</button>
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-12 text-right">
+                            <button type="submit" value="submit" class="btn submit_btn">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================Contact Area =================-->
 
     <!--================Footer Area =================-->
     <footer class="footer_area p_120">
@@ -813,6 +913,10 @@
     <script src="{{ asset('assets/vendors/counter-up/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('assets/js/mail-script.js') }}"></script>
     <script src="{{ asset('assets/js/theme.js') }}"></script>
+    {{-- <!--gmaps Js-->
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+     <script src="{{ asset('assets/js/gmaps.min.js') }}"></script>
+     <script src="{{ asset('assets/js/theme.js') }}"></script> --}}
 </body>
 
 </html>
