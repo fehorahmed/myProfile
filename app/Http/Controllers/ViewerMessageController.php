@@ -100,8 +100,9 @@ class ViewerMessageController extends Controller
      * @param  \App\Models\ViewerMessage  $viewerMessage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ViewerMessage $viewerMessage)
+    public function destroy($id)
     {
-        //
+        ViewerMessage::destroy($id);
+        return redirect()->back()->with('message', 'Successfully Message Deleted.');
     }
 }

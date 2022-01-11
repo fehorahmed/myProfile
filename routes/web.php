@@ -27,15 +27,15 @@ Route::get('/', [HomeController::class, 'home']);
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('backend.index');
-    })->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('backend.index');
+    // })->name('dashboard');
 
-
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     //Test Perpous
-    Route::get('/dashboard2', function () {
-        return view('backend.dashboard');
-    });
+    // Route::get('/dashboard2', function () {
+    //     return view('backend.dashboard');
+    // });
     // Banner Section
     Route::get('/admin/banner', [BannerPicController::class, 'index'])->name('admin.banner');
     Route::get('/admin/banner/add', [BannerPicController::class, 'create'])->name('admin.banner.add');
@@ -93,16 +93,17 @@ Route::middleware(['auth'])->group(function () {
      // Viewer Message Section
      Route::get('/admin/message', [ViewerMessageController::class, 'index'])->name('admin.message');
      //Route::get('/admin/message/add', [ViewerMessageController::class, 'create'])->name('admin.message.add');
-      Route::post('/admin/message/add', [ViewerMessageController::class, 'store'])->name('admin.message.store');
+
     //  Route::get('/admin/message/active/{id}', [ViewerMessageController::class, 'active'])->name('admin.message.active');
     //  Route::get('/admin/message/edit/{id}', [ViewerMessageController::class, 'edit'])->name('admin.message.edit');
     //  Route::post('/admin/message/update', [ViewerMessageController::class, 'update'])->name('admin.message.update');
-    //  Route::get('/admin/message/destroy/{id}', [ViewerMessageController::class, 'destroy'])->name('admin.message.destroy');
+      Route::get('/admin/message/destroy/{id}', [ViewerMessageController::class, 'destroy'])->name('admin.message.destroy');
 
 
 
 });
-
+// Viewer Message Section
+Route::post('/admin/message/add', [ViewerMessageController::class, 'store'])->name('admin.message.store');
 
 
 // Route::get('/', function () {

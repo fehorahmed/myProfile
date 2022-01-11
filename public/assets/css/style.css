@@ -3024,5 +3024,5 @@ h6 {
 }
 .contact_area{
     background-color: white; /* For browsers that do not support gradients */
-    background-image: linear-gradient(violet, white, white, white, white, white, violet);
+    background-image: linear-gradient(rgba(70, 53, 70, 0.212), white, white, white, white, white);
 }

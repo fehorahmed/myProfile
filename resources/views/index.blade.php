@@ -22,12 +22,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
 
 
-    @if (session('message'))
-    <script>
-        alert({{session('message')}});
-    </script>
 
-    @endif
 </head>
 
 <body>
@@ -745,6 +740,11 @@
             <div class="main_title">
                 <h2>Send message</h2>
                 <p>Who are in extremely love with eco friendly system.</p>
+                @if (session('message'))
+
+                   <h3>{{ session('message') }}</h3>
+
+                @endif
             </div>
             <div class="row">
                 <div class="col-lg-3">
@@ -845,8 +845,8 @@
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             <script>
                                 document.write(new Date().getFullYear());
-                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o"
-                                aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            </script> All rights reserved | This template is developed by <i class="fa fa-heart-o"
+                                aria-hidden="true"></i> by <a href="https://fehor.idbdev.com" target="_blank">Fehor Ahmed</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </aside>

@@ -70,7 +70,7 @@
 
                                         <td>
                                             <a class="btn btn-info btn-sm" {{--href="{{ route('admin.experience.edit', ['id' => $datas->id]) }}--}}">Edit</a>
-                                            <a class="btn btn-danger btn-sm" {{--href="{{ route('admin.experience.destroy', ['id' => $datas->id]) }}--}}">Delete</a>
+                                            <a class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="{{ route('admin.message.destroy', ['id' => $datas->id]) }}">Delete</a>
                                             @if ($datas->status == 1)
                                                 <span class="label label-info">This is Active</span>
                                             @else

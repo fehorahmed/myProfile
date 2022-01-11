@@ -393,13 +393,13 @@
 
 
 
-                        <li class="treeview">
+                        <li class="@yield('viewer_message_status') treeview">
                             <a href="#">
                                 <i class="fa fa-edit"></i> <span>Viewer Message Option</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{route('admin.message')}}"><i class="fa fa-circle-o"></i> View Message</a>
+                                <li class="@yield('view_status')"><a href="{{route('admin.message')}}"><i class="fa fa-circle-o"></i> View Message</a>
                                 </li>
 
                             </ul>
