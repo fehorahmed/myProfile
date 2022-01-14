@@ -21,13 +21,18 @@
                     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                         <span class="sr-only">Toggle navigation</span>
                     </a>
+                    @php
+                        $m_count= \App\Models\ViewerMessage::all()->count();
+                    @endphp
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Messages: style can be found in dropdown.less-->
                             <li class="dropdown messages-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-envelope-o"></i>
-                                    <span class="label label-success">4</span>
+                                    <span class="label label-success">
+                                        {{$m_count}}
+                                    </span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="header">You have 4 messages</li>
@@ -400,6 +405,19 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li class="@yield('view_status')"><a href="{{route('admin.message')}}"><i class="fa fa-circle-o"></i> View Message</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                        <li class="@yield('link_status') treeview">
+                            <a href="#">
+                                <i class="fa fa-fw fa-instagram"></i> <span>Social Link Option</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="@yield('link_status')"><a href="{{route('admin.link')}}"><i class="fa fa-circle-o"></i> View Socil Link</a>
                                 </li>
 
                             </ul>

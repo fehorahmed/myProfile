@@ -9,6 +9,7 @@ use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SocialLinkController;
 use App\Http\Controllers\ViewerMessageController;
 
 /*
@@ -98,6 +99,15 @@ Route::middleware(['auth'])->group(function () {
     //  Route::get('/admin/message/edit/{id}', [ViewerMessageController::class, 'edit'])->name('admin.message.edit');
     //  Route::post('/admin/message/update', [ViewerMessageController::class, 'update'])->name('admin.message.update');
       Route::get('/admin/message/destroy/{id}', [ViewerMessageController::class, 'destroy'])->name('admin.message.destroy');
+
+       // Social Link Section
+     Route::get('/admin/link', [SocialLinkController::class, 'index'])->name('admin.link');
+     Route::get('/admin/link/add', [SocialLinkController::class, 'create'])->name('admin.link.add');
+     Route::post('/admin/link/add', [SocialLinkController::class, 'store'])->name('admin.link.store');
+     Route::get('/admin/link/active/{id}', [SocialLinkController::class, 'active'])->name('admin.link.active');
+     Route::get('/admin/link/edit/{id}', [SocialLinkController::class, 'edit'])->name('admin.link.edit');
+     Route::post('/admin/link/update', [SocialLinkController::class, 'update'])->name('admin.link.update');
+     Route::get('/admin/link/destroy/{id}', [SocialLinkController::class, 'destroy'])->name('admin.link.destroy');
 
 
 

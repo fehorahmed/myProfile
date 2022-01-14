@@ -24,52 +24,40 @@
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+                  <a href="{{route('admin.message')}}">  <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span></a>
                     <div class="info-box-content">
                         <span class="info-box-text">Viewer Messages</span>
                         <span class="info-box-number">{{$viewer_message_count}}</span>
                     </div><!-- /.info-box-content -->
                 </div><!-- /.info-box -->
             </div>
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-green">
-                    <div class="inner">
-                        <h3>53<sup style="font-size: 20px">%</sup></h3>
-                        <p>Bounce Rate</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-yellow">
-                    <div class="inner">
-                        <h3>44</h3>
-                        <p>User Registrations</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-red">
-                    <div class="inner">
-                        <h3>65</h3>
-                        <p>Unique Visitors</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div><!-- ./col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                  <a href="{{route('admin.service')}}">  <span class="info-box-icon bg-yellow"> <i class="fa fa-fw fa-truck"></i></span></a>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Services</span>
+                        <span class="info-box-number">{{$service_count}}</span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                  <a href="{{route('admin.project')}}">  <span class="info-box-icon bg-yellow"> <i class="fa fa-fw fa-file-o"></i></span></a>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Project</span>
+                        <span class="info-box-number">{{$project_count}}</span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                  <a href="{{route('admin.experience')}}">  <span class="info-box-icon bg-yellow"> <i class="fa fa-fw fa-shirtsinbulk"></i></span></a>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Experience</span>
+                        <span class="info-box-number">{{$experience_count}}</span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div>
         </div><!-- /.row -->
         <!-- Main row -->
         <div class="row">

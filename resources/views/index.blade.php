@@ -130,6 +130,21 @@
                                         <li><a class="b-ancor" href="#"><i class="lnr lnr-home b-icon"></i>
                                                 {{ $banner[0]->address }}</a></li>
                                     </ul>
+                                    <ul class="list personal_social">
+                                        @foreach ($social as $so)
+                                        @if ($so->name=='facebook')
+                                        <li><a href="{!!$so->link!!}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                        @elseif ($so->name=='twitter')
+                                        <li><a href="{!!$so->link!!}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                        @elseif ($so->name=='linkedin')
+                                        <li><a href="{!!$so->link!!}" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i></a></li>
+                                        @elseif ($so->name=='instagram')
+                                        <li><a href="{!!$so->link!!}" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
+                                        @endif
+
+                                        @endforeach
+
+                                    </ul>
                                 @else
                                     <h3>Name Here</h3>
                                     <h4>Designation is here</h4>
@@ -141,13 +156,14 @@
                                         <li><a class="b-ancor" href="#"><i class="lnr lnr-home b-icon"></i>
                                                 Address</a></li>
                                     </ul>
+                                    <ul class="list personal_social">
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
                                 @endif
 
-                                <ul class="list personal_social">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
+
                             </div>
                         </div>
                     </div>
@@ -382,10 +398,10 @@
                                     <span></span>
                                     <div class="media">
                                         <div class="d-flex">
-                                            <p>March 2017 to present</p>
+                                            <p>Start date to end date here</p>
                                         </div>
                                         <div class="media-body">
-                                            <h4>Colorlib</h4>
+                                            <h4>Experience Here</h4>
                                             <p>Senior Web Developer <br />Santa monica, Los angeles</p>
                                         </div>
                                     </div>
@@ -394,10 +410,10 @@
                                     <span></span>
                                     <div class="media">
                                         <div class="d-flex">
-                                            <p>March 2017 to present</p>
+                                            <p>Start date to end date here</p>
                                         </div>
                                         <div class="media-body">
-                                            <h4>Colorlib</h4>
+                                            <h4>Experience Here</h4>
                                             <p>Senior Web Developer <br />Santa monica, Los angeles</p>
                                         </div>
                                     </div>
@@ -406,10 +422,10 @@
                                     <span></span>
                                     <div class="media">
                                         <div class="d-flex">
-                                            <p>March 2017 to present</p>
+                                            <p>Start date to end date here</p>
                                         </div>
                                         <div class="media-body">
-                                            <h4>Colorlib</h4>
+                                            <h4>Experience Here</h4>
                                             <p>Senior Web Developer <br />Santa monica, Los angeles</p>
                                         </div>
                                     </div>
@@ -748,11 +764,12 @@
             </div>
             <div class="row">
                 <div class="col-lg-3">
+                    @if ($banner->isNotEmpty())
                     <div class="contact_info">
                         <div class="info_item">
                             <i class="lnr lnr-home"></i>
                             <h6>{{ $banner[0]->address }}</h6>
-                            <p>Santa monica bullevard</p>
+                            <p></p>
                         </div>
                         <div class="info_item">
                             <i class="lnr lnr-phone-handset"></i>
@@ -765,6 +782,26 @@
                             <p>Send me your query anytime!</p>
                         </div>
                     </div>
+                    @else
+                    <div class="contact_info">
+                        <div class="info_item">
+                            <i class="lnr lnr-home"></i>
+                            <h6>Address Here</h6>
+                            <p>Santa monica bullevard</p>
+                        </div>
+                        <div class="info_item">
+                            <i class="lnr lnr-phone-handset"></i>
+                            <h6><a href="#"></a>Phone no here</h6>
+                            <p>Mon to Fri 9am to 6 pm</p>
+                        </div>
+                        <div class="info_item">
+                            <i class="lnr lnr-envelope"></i>
+                            <h6><a href="#">email here</a></h6>
+                            <p>Send me your query anytime!</p>
+                        </div>
+                    </div>
+                    @endif
+
                 </div>
                 <div class="col-lg-9">
                     <form class="row contact_form" action="{{ route('admin.message.store') }}" method="post"
@@ -879,10 +916,17 @@
                         </div>
                         <p>Let us be social</p>
                         <ul class="list">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            @foreach ($social as $so)
+                            @if ($so->name=='facebook')
+                            <li><a href="{!!$so->link!!}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            @elseif ($so->name=='twitter')
+                            <li><a href="{!!$so->link!!}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            @elseif ($so->name=='linkedin')
+                            <li><a href="{!!$so->link!!}" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i></a></li>
+                            @endif
+
+                            @endforeach
+
                         </ul>
                     </aside>
                 </div>
