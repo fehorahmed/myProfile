@@ -22,7 +22,8 @@
                         <span class="sr-only">Toggle navigation</span>
                     </a>
                     @php
-                        $m_count= \App\Models\ViewerMessage::all()->count();
+                        $m_count = \App\Models\ViewerMessage::all()->count();
+                        $message = \App\Models\ViewerMessage::all()->take(-4);
                     @endphp
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
@@ -31,87 +32,38 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-envelope-o"></i>
                                     <span class="label label-success">
-                                        {{$m_count}}
+                                        {{ $m_count }}
                                     </span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="header">You have 4 messages</li>
+                                    <li class="header">You have {{ $m_count }} messages</li>
                                     <li>
                                         <!-- inner menu: contains the actual data -->
                                         <ul class="menu">
-                                            <li>
-                                                <!-- start message -->
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="dist/img/user2-160x160.jpg" class="img-circle"
-                                                            alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        Support Team
-                                                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li><!-- end message -->
-                                            <li>
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="dist/img/user3-128x128.jpg" class="img-circle"
-                                                            alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        AdminLTE Design Team
-                                                        <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="dist/img/user4-128x128.jpg" class="img-circle"
-                                                            alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        Developers
-                                                        <small><i class="fa fa-clock-o"></i> Today</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="dist/img/user3-128x128.jpg" class="img-circle"
-                                                            alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        Sales Department
-                                                        <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <div class="pull-left">
-                                                        <img src="dist/img/user4-128x128.jpg" class="img-circle"
-                                                            alt="User Image">
-                                                    </div>
-                                                    <h4>
-                                                        Reviewers
-                                                        <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                                    </h4>
-                                                    <p>Why not buy a new awesome theme?</p>
-                                                </a>
-                                            </li>
+                                            @foreach ($message as $mes)
+                                                <li>
+                                                    <!-- start message -->
+                                                    <a href="#">
+                                                        <div class="pull-left">
+                                                            <i class="fa fa-fw fa-commenting-o"></i>
+                                                        </div>
+                                                        <h4>
+                                                            {{ $mes->name }}
+                                                            <small><i class="fa fa-clock-o"></i>
+                                                                {{ $mes->created_at->diffForHumans() }}</small>
+                                                        </h4>
+                                                        <p>{{ $mes->message }}</p>
+                                                    </a>
+                                                </li><!-- end message -->
+                                            @endforeach
                                         </ul>
                                     </li>
-                                    <li class="footer"><a href="#">See All Messages</a></li>
+                                    <li class="footer"><a href="{{ route('admin.message') }}">See All Messages</a>
+                                    </li>
                                 </ul>
                             </li>
                             <!-- Notifications: style can be found in dropdown.less -->
-                            <li class="dropdown notifications-menu">
+                            {{-- <li class="dropdown notifications-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-bell-o"></i>
                                     <span class="label label-warning">10</span>
@@ -233,7 +185,7 @@
                                         <a href="#">View all tasks</a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -243,24 +195,14 @@
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-                                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                        {{-- <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"> --}}
                                         <p>
-                                            Alexander Pierce - Web Developer
-                                            <small>Member since Nov. 2012</small>
+                                            {{ Auth::user()->email }}
+                                            <small>Member since {{ Auth::user()->created_at->diffForHumans() }}</small>
                                         </p>
                                     </li>
                                     <!-- Menu Body -->
-                                    <li class="user-body">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Followers</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Sales</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Friends</a>
-                                        </div>
-                                    </li>
+
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
@@ -272,7 +214,7 @@
                                                     @csrf
 
                                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                        this.closest('form').submit();">
+                                                                this.closest('form').submit();">
                                                         {{ __('Log Out') }}
                                                     </a>
                                                 </form>
@@ -295,13 +237,10 @@
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
-                        <div class="pull-left image">
-                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                        </div>
-                        <div class="pull-left info">
-                            <p>Alexander Pierce</p>
-                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                        </div>
+
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>&nbsp;&nbsp;
+                          <span style="color: white;">{{ Auth::user()->name }}</span>
+
                     </div>
                     <!-- search form -->
                     <form action="#" method="get" class="sidebar-form">
@@ -362,34 +301,34 @@
 
 
 
-                        <li class=" @yield('main_status') treeview">
+                        <li class=" @yield('main_status')" treeview">
                             <a href="#">
                                 <i class="fa fa-laptop"></i>
-                                <span>Picture Control</span>
+                                <span>Main Control</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="@yield('banner_status')"><a href="{{ route('admin.banner') }}"><i
+                                <li class="{{ request()->routeIs('admin.banner*') ? 'active' : ''  }}"><a href="{{ route('admin.banner') }}"><i
                                             class="fa fa-circle-o"></i>Banner & Picture</a></li>
                             </ul>
                             <ul class="treeview-menu">
-                                <li class="@yield('about_status')"><a href="{{ route('admin.about') }}"><i
+                                <li class="{{ request()->routeIs('admin.about*') ? 'active' : ''  }}"><a href="{{ route('admin.about') }}"><i
                                             class="fa fa-circle-o"></i>About Section</a></li>
                             </ul>
                             <ul class="treeview-menu">
-                                <li class="@yield('experience_status')"><a href="{{ route('admin.experience') }}"><i
+                                <li class="{{ request()->routeIs('admin.experience*') ? 'active' : ''  }}"><a href="{{ route('admin.experience') }}"><i
                                             class="fa fa-circle-o"></i>Experience Section</a></li>
                             </ul>
                             <ul class="treeview-menu">
-                                <li class="@yield('education_status')"><a href="{{ route('admin.education') }}"><i
+                                <li class="{{ request()->routeIs('admin.education*') ? 'active' : ''  }}"><a href="{{ route('admin.education') }}"><i
                                             class="fa fa-circle-o"></i>Education Section</a></li>
                             </ul>
                             <ul class="treeview-menu">
-                                <li class="@yield('service_status')"><a href="{{ route('admin.service') }}"><i
+                                <li class="{{ request()->routeIs('admin.service*') ? 'active' : ''  }}"><a href="{{ route('admin.service') }}"><i
                                             class="fa fa-circle-o"></i>Service Section</a></li>
                             </ul>
                             <ul class="treeview-menu">
-                                <li class="@yield('project_status')"><a href="{{ route('admin.project') }}"><i
+                                <li class="{{ request()->routeIs('admin.project*') ? 'active' : ''  }}"><a href="{{ route('admin.project') }}"><i
                                             class="fa fa-circle-o"></i>Project Section</a></li>
                             </ul>
 
@@ -404,7 +343,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="@yield('view_status')"><a href="{{route('admin.message')}}"><i class="fa fa-circle-o"></i> View Message</a>
+                                <li class="@yield('view_status')"><a href="{{ route('admin.message') }}"><i
+                                            class="fa fa-circle-o"></i> View Message</a>
                                 </li>
 
                             </ul>
@@ -417,7 +357,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="@yield('link_status')"><a href="{{route('admin.link')}}"><i class="fa fa-circle-o"></i> View Socil Link</a>
+                                <li class="@yield('link_status')"><a href="{{ route('admin.link') }}"><i
+                                            class="fa fa-circle-o"></i> View Socil Link</a>
                                 </li>
 
                             </ul>
@@ -675,7 +616,7 @@
                 </div>
             </aside><!-- /.control-sidebar -->
             <!-- Add the sidebar's background. This div must be placed
-                       immediately after the control sidebar -->
+                               immediately after the control sidebar -->
             <div class="control-sidebar-bg"></div>
         </div><!-- ./wrapper -->
     @endsection

@@ -38,7 +38,7 @@ class ViewerMessageController extends Controller
     {
         $request->validate([
             'name'=>'required|max:40',
-            'email'=>'required|max:60',
+            'email'=>'required|email|max:60',
             'subject'=>'required|max:60',
             'message'=>'required|max:300',
         ]);

@@ -55,14 +55,18 @@
                                     <div class="col-sm-10">
                                         <input type="email" class="form-control" id="inputEmail3" name="email"
                                             placeholder="Email">
+                                            <p>fehorahmed@gmail.com</p>
                                     </div>
+
                                 </div>
                                 <div class="form-group">
                                     <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
                                     <div class="col-sm-10">
                                         <input type="password" class="form-control" id="inputPassword3"
                                             name="password" placeholder="Password">
+                                            <p>12345678</p>
                                     </div>
+
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
