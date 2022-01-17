@@ -810,7 +810,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="name" name="name"
-                                    placeholder="Enter your name">
+                                    placeholder="Enter your name" required>
                             </div>
                             @error('name')
                                 <div class="alert alert-danger alert-dismissable">
@@ -821,7 +821,7 @@
                             @enderror
                             <div class="form-group">
                                 <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="Enter email address">
+                                    placeholder="Enter email address" required>
                             </div>
                             @error('email')
                                 <div class="alert alert-danger alert-dismissable">
@@ -832,7 +832,7 @@
                             @enderror
                             <div class="form-group">
                                 <input type="text" class="form-control" id="subject" name="subject"
-                                    placeholder="Enter Subject">
+                                    placeholder="Enter Subject" required>
                             </div>
                             @error('subject')
                                 <div class="alert alert-danger alert-dismissable">
@@ -846,7 +846,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <textarea class="form-control" name="message" id="message" rows="1"
-                                    placeholder="Enter Message"></textarea>
+                                    placeholder="Enter Message" required></textarea>
                             </div>
                             @error('message')
                                 <div class="alert alert-danger alert-dismissable">

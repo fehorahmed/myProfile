@@ -24,7 +24,7 @@ use App\Http\Controllers\ViewerMessageController;
 */
 
 
-Route::get('/', [HomeController::class, 'home']);
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
 
 Route::middleware(['auth'])->group(function () {

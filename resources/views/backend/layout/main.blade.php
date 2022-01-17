@@ -362,6 +362,13 @@
 
                             </ul>
                         </li>
+                        <li class=" treeview">
+                            <a target="_blank" href="{{route('home')}}">
+                                <i class="fa fa-fw fa-home"></i> <span>Landing Page</span>
+                               
+                            </a>
+
+                        </li>
                         {{-- <li class="treeview">
               <a href="#">
                 <i class="fa fa-table"></i> <span>Tables</span>

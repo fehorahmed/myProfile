@@ -47,7 +47,7 @@
                             <div class="form-group">
                                 <label for="service">Service Name</label>
                                 <input type="text" class="form-control" name="service" value="{{ old('service') }}"
-                                    id="service" placeholder="Enter Your Service Name">
+                                    id="service" placeholder="Enter Your Service Name" required>
                             </div>
                             @error('service')
                                 <div class="alert alert-danger alert-dismissable">
@@ -59,7 +59,7 @@
                             <div class="form-group">
                                 <label for="details">Details </label>
                                 <textarea name="details" class="form-control" id="details" cols="30" rows="10"
-                                    placeholder="Enter Your Service Details.">{{ old('details') }}</textarea>
+                                    placeholder="Enter Your Service Details." required>{{ old('details') }}</textarea>
                             </div>
                             @error('details')
                                 <div class="alert alert-danger alert-dismissable">
@@ -75,7 +75,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="file">Image File</label>
-                                <input type="file" class="form-control" name="file" id="file">
+                                <input type="file" class="form-control" name="file" id="file" required>
                                 <p class="help-block">Image Must be Width:100px and Height:100px.</p>
                             </div>
                             @error('file')

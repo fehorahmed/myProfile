@@ -47,7 +47,7 @@
                             <div class="form-group">
                                 <label for="name">Project Name</label>
                                 <input type="text" class="form-control" name="name" value="{{ old('name') }}"
-                                    id="name" placeholder="Enter Your Project Name">
+                                    id="name" placeholder="Enter Your Project Name" required>
                             </div>
                             @error('name')
                                 <div class="alert alert-danger alert-dismissable">
@@ -59,7 +59,7 @@
                             <div class="form-group">
                                 <label for="about">About Project </label>
                                 <textarea name="about" class="form-control" id="about" cols="30" rows="10"
-                                    placeholder="Enter Your Project About.">{{ old('about') }}</textarea>
+                                    placeholder="Enter Your Project About." required>{{ old('about') }}</textarea>
                             </div>
                             @error('about')
                                 <div class="alert alert-danger alert-dismissable">
@@ -77,8 +77,8 @@
                             <div class="form-group">
                                 <label>Group Name</label>
                                 <select name="group_name" class="form-control select2 select2-hidden-accessible" style="width: 100%;"
-                                    tabindex="-1" aria-hidden="true">
-                                    <option value="" selected="selected">Select One</option>
+                                    tabindex="-1" aria-hidden="true" required>
+                                    <option value="{{old('group_name')}}" selected="selected">{{ old('group_name','Select One') }}</option>
                                     <option>brand</option>
                                     <option>manipul</option>
                                     <option>creative</option>
@@ -89,14 +89,14 @@
                                 <div class="alert alert-danger alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert"
                                         aria-hidden="true">×</button>
-                                    {{ $message }}
+                                    {{ $message }}<br>Select any group name
                                 </div>
                             @enderror
 
                             <div class="form-group">
                                 <label for="link">Project Link</label>
                                 <input type="text" class="form-control" name="link" value="{{ old('link') }}"
-                                    id="link" placeholder="Enter Your Project Link">
+                                    id="link" placeholder="Enter Your Project Link" required>
                                     <p class="help-block">Link like: https://www.fehor.laundry.idbdev.com/</p>
                             </div>
                             @error('link')
@@ -109,7 +109,7 @@
 
                             <div class="form-group">
                                 <label for="file">Image File</label>
-                                <input type="file" class="form-control" name="file" id="file">
+                                <input type="file" class="form-control" name="file" id="file" required>
                                 <p class="help-block">Image Must be Width:340px and Height:340px.</p>
 
                             </div>

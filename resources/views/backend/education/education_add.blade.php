@@ -47,7 +47,7 @@
                             <div class="form-group">
                                 <label for="exam">Exam Name</label>
                                 <input type="text" value="{{ old('exam') }}" class="form-control"
-                                    name="exam" id="exam" placeholder="Enter Exam Name">
+                                    name="exam" id="exam" placeholder="Enter Exam Name" required>
 
                             </div>
                             @error('exam')
@@ -60,7 +60,7 @@
                             <div class="form-group">
                                 <label for="college">College Name</label>
                                 <input type="text" value="{{ old('college') }}" class="form-control"
-                                    name="college" id="college" placeholder="Enter College Name.">
+                                    name="college" id="college" placeholder="Enter College Name." required>
                             </div>
                             @error('college')
                                 <div class="alert alert-danger alert-dismissable">
@@ -72,7 +72,7 @@
                             <div class="form-group">
                                 <label for="result">Result</label>
                                 <input type="text" value="{{ old('result') }}" name="result" class="form-control"
-                                    id="result" placeholder="Enter Result. ">
+                                    id="result" placeholder="Enter Result. " required>
                             </div>
                             @error('result')
                                 <div class="alert alert-danger alert-dismissable">
@@ -87,7 +87,7 @@
                             <div class="form-group">
                                 <label for="start_date">Start Date</label>
                                 <input type="date" value="{{ old('start_date') }}" name="start_date"
-                                    class="form-control" id="start_date" placeholder="Enter Start Date">
+                                    class="form-control" id="start_date" placeholder="Enter Start Date" required>
 
                             </div>
                             @error('start_date')

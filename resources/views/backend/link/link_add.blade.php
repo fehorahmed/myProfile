@@ -46,7 +46,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name">Site Name</label>
-                                    <select name="name" class="form-control" id="name">
+                                    <select name="name" class="form-control" id="name" required>
                                         <option value="{{old('name')}}">{{old('name')}}</option>
                                         <option value="facebook">Facebook</option>
                                         <option value="twitter">Twitter</option>
@@ -64,7 +64,7 @@
                             <div class="form-group">
                                 <label for="link">Your URL</label>
                                 <input type="text" value="{{ old('link') }}" class="form-control"
-                                    name="link" id="link" placeholder="Enter Your Link.">
+                                    name="link" id="link" placeholder="Enter Your Link." required>
                                     <p>Like: https://www.facebook.com/</p>
                             </div>
                             @error('link')
