@@ -214,7 +214,7 @@
                                                     @csrf
 
                                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                this.closest('form').submit();">
+                                                                                this.closest('form').submit();">
                                                         {{ __('Log Out') }}
                                                     </a>
                                                 </form>
@@ -238,12 +238,12 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
 
-                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>&nbsp;&nbsp;
-                          <span style="color: white;">{{ Auth::user()->name }}</span>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>&nbsp;&nbsp;
+                        <span style="color: white;">{{ Auth::user()->name }}</span>
 
                     </div>
                     <!-- search form -->
-                    <form action="#" method="get" class="sidebar-form">
+                    {{-- <form action="#" method="get" class="sidebar-form">
                         <div class="input-group">
                             <input type="text" name="q" class="form-control" placeholder="Search...">
                             <span class="input-group-btn">
@@ -251,7 +251,7 @@
                                         class="fa fa-search"></i></button>
                             </span>
                         </div>
-                    </form>
+                    </form> --}}
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
@@ -308,29 +308,27 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="{{ request()->routeIs('admin.banner*') ? 'active' : ''  }}"><a href="{{ route('admin.banner') }}"><i
-                                            class="fa fa-circle-o"></i>Banner & Picture</a></li>
+                                <li class="{{ request()->routeIs('admin.banner*') ? 'active' : '' }}"><a
+                                        href="{{ route('admin.banner') }}"><i class="fa fa-circle-o"></i>Banner &
+                                        Picture</a></li>
+                                <li class="{{ request()->routeIs('admin.about*') ? 'active' : '' }}"><a
+                                        href="{{ route('admin.about') }}"><i class="fa fa-circle-o"></i>About Section</a>
+                                </li>
+                                <li class="{{ request()->routeIs('admin.experience*') ? 'active' : '' }}"><a
+                                        href="{{ route('admin.experience') }}"><i class="fa fa-circle-o"></i>Experience
+                                        Section</a></li>
+                                <li class="{{ request()->routeIs('admin.education*') ? 'active' : '' }}"><a
+                                        href="{{ route('admin.education') }}"><i class="fa fa-circle-o"></i>Education
+                                        Section</a></li>
+                                <li class="{{ request()->routeIs('admin.service*') ? 'active' : '' }}"><a
+                                        href="{{ route('admin.service') }}"><i class="fa fa-circle-o"></i>Service
+                                        Section</a></li>
+                                <li class="{{ request()->routeIs('admin.project*') ? 'active' : '' }}"><a
+                                        href="{{ route('admin.project') }}"><i class="fa fa-circle-o"></i>Project
+                                        Section</a>
+                                </li>
                             </ul>
-                            <ul class="treeview-menu">
-                                <li class="{{ request()->routeIs('admin.about*') ? 'active' : ''  }}"><a href="{{ route('admin.about') }}"><i
-                                            class="fa fa-circle-o"></i>About Section</a></li>
-                            </ul>
-                            <ul class="treeview-menu">
-                                <li class="{{ request()->routeIs('admin.experience*') ? 'active' : ''  }}"><a href="{{ route('admin.experience') }}"><i
-                                            class="fa fa-circle-o"></i>Experience Section</a></li>
-                            </ul>
-                            <ul class="treeview-menu">
-                                <li class="{{ request()->routeIs('admin.education*') ? 'active' : ''  }}"><a href="{{ route('admin.education') }}"><i
-                                            class="fa fa-circle-o"></i>Education Section</a></li>
-                            </ul>
-                            <ul class="treeview-menu">
-                                <li class="{{ request()->routeIs('admin.service*') ? 'active' : ''  }}"><a href="{{ route('admin.service') }}"><i
-                                            class="fa fa-circle-o"></i>Service Section</a></li>
-                            </ul>
-                            <ul class="treeview-menu">
-                                <li class="{{ request()->routeIs('admin.project*') ? 'active' : ''  }}"><a href="{{ route('admin.project') }}"><i
-                                            class="fa fa-circle-o"></i>Project Section</a></li>
-                            </ul>
+
 
 
                         </li>
@@ -346,6 +344,7 @@
                                 <li class="@yield('view_status')"><a href="{{ route('admin.message') }}"><i
                                             class="fa fa-circle-o"></i> View Message</a>
                                 </li>
+
 
                             </ul>
                         </li>
@@ -616,7 +615,7 @@
                 </div>
             </aside><!-- /.control-sidebar -->
             <!-- Add the sidebar's background. This div must be placed
-                               immediately after the control sidebar -->
+                                               immediately after the control sidebar -->
             <div class="control-sidebar-bg"></div>
         </div><!-- ./wrapper -->
     @endsection
